@@ -41,7 +41,7 @@ public class ReplaySubjectTest {
 	}
 	
 	@Test 
-	public void testWithTime() throws InterruptedException {
+	public void testWithTime() {
 		TestSubscriber<Integer> tester = new TestSubscriber<Integer>();
 		TestScheduler scheduler = Schedulers.test();
 		
