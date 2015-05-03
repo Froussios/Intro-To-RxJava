@@ -1,4 +1,4 @@
-package itrx;
+package itrx.chapter1;
 
 import static org.junit.Assert.*;
 
