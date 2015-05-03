@@ -1,41 +1,14 @@
 package itrx.chapter2.aggregation;
 
-import static org.junit.Assert.*;
-
-import java.util.*;
+import java.util.Arrays;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscriber;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
-import rx.schedulers.Schedulers;
-import rx.schedulers.TestScheduler;
-import rx.subjects.ReplaySubject;
-import rx.subjects.Subject;
 
 public class GroupByTest {
 	
-	private class PrintSubscriber extends Subscriber<Object>{
-	    private final String name;
-	    public PrintSubscriber(String name) {
-	        this.name = name;
-	    }
-	    @Override
-	    public void onCompleted() {
-	        System.out.println(name + ": Completed");
-	    }
-	    @Override
-	    public void onError(Throwable e) {
-	        System.out.println(name + ": Error: " + e);
-	    }
-	    @Override
-	    public void onNext(Object v) {
-	        System.out.println(name + ": " + v);
-	    }
-	}
-
 	public void exampleGroupBy() {
 		Observable<String> values = Observable.just(
 		        "first",

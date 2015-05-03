@@ -1,13 +1,10 @@
 package itrx.chapter2.reducing;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
 
 public class IgnoreTest {
@@ -18,7 +15,7 @@ public class IgnoreTest {
 		
 		Observable<Integer> values = Observable.range(0, 10);
 
-		Subscription subscription = values
+		values
 		    .ignoreElements()
 		    .subscribe(tester);
 		

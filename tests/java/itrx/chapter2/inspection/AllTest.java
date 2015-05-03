@@ -1,6 +1,6 @@
 package itrx.chapter2.inspection;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -25,7 +25,7 @@ public class AllTest {
 		});
 
 
-		Subscription evenNumbers = values
+		values
 		    .all(i -> i % 2 == 0)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -54,6 +54,9 @@ public class AllTest {
 		        () -> System.out.println("Completed")
 		    );
 		
+		subscription.unsubscribe();
+		subscription2.unsubscribe();
+		
 //		0
 //		1
 //		2
@@ -71,7 +74,7 @@ public class AllTest {
 		    o.onError(new Exception());
 		});
 
-		Subscription subscription = values
+		values
 		    .all(i -> i % 2 == 0)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -89,7 +92,7 @@ public class AllTest {
 		    o.onError(new Exception());
 		});
 
-		Subscription subscription = values
+		values
 		    .all(i -> i % 2 == 0)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -120,7 +123,7 @@ public class AllTest {
 		});
 
 
-		Subscription evenNumbers = values
+		values
 		    .all(i -> i % 2 == 0)
 		    .subscribe(tester);
 		
@@ -157,11 +160,14 @@ public class AllTest {
 		testerSrc.assertReceivedOnNext(Arrays.asList(0L, 1L, 2L, 3L, 4L));
 		testerSrc.assertTerminalEvent();
 		testerSrc.assertNoErrors();
+		
+		subscription.unsubscribe();
+		subscription2.unsubscribe();
 	}
 	
 	@Test
 	public void testAllError() {
-		TestSubscriber<Boolean> tester = new TestSubscriber();
+		TestSubscriber<Boolean> tester = new TestSubscriber<>();
 		
 		Observable<Integer> values = Observable.create(o -> {
 		    o.onNext(0);
@@ -169,7 +175,7 @@ public class AllTest {
 		    o.onError(new Exception());
 		});
 
-		Subscription subscription = values
+		values
 		    .all(i -> i % 2 == 0)
 		    .subscribe(tester);
 		
@@ -180,7 +186,7 @@ public class AllTest {
 	
 	@Test
 	public void testAllErrorAfterComplete() {
-		TestSubscriber<Boolean> tester = new TestSubscriber();
+		TestSubscriber<Boolean> tester = new TestSubscriber<>();
 		
 		Observable<Integer> values = Observable.create(o -> {
 		    o.onNext(1);
@@ -188,7 +194,7 @@ public class AllTest {
 		    o.onError(new Exception());
 		});
 
-		Subscription subscription = values
+		values
 		    .all(i -> i % 2 == 0)
 		    .subscribe(tester);
 		

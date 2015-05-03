@@ -1,13 +1,10 @@
 package itrx.chapter2.inspection;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
 
 public class ExistsTest {
@@ -15,7 +12,7 @@ public class ExistsTest {
 	public void exampleFalse() {
 		Observable<Integer> values = Observable.range(0, 2);
 
-		Subscription subscription = values
+		values
 		    .exists(i -> i > 2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -30,7 +27,7 @@ public class ExistsTest {
 	public void exampleTrue() {
 		Observable<Integer> values = Observable.range(0, 4);
 
-		Subscription subscription = values
+		values
 		    .exists(i -> i > 2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -48,7 +45,7 @@ public class ExistsTest {
 		
 		Observable<Integer> values = Observable.range(0, 2);
 
-		Subscription subscription = values
+		values
 		    .exists(i -> i > 2)
 		    .subscribe(tester);
 		
@@ -63,7 +60,7 @@ public class ExistsTest {
 		
 		Observable<Integer> values = Observable.range(0, 4);
 
-		Subscription subscription = values
+		values
 		    .exists(i -> i > 2)
 		    .subscribe(tester);
 		

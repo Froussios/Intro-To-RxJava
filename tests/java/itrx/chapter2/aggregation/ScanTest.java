@@ -1,18 +1,12 @@
 package itrx.chapter2.aggregation;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
-import rx.schedulers.Schedulers;
-import rx.schedulers.TestScheduler;
 import rx.subjects.ReplaySubject;
 import rx.subjects.Subject;
 

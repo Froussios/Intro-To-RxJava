@@ -1,13 +1,10 @@
 package itrx.chapter2.inspection;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
 
 public class ElementAtTest {
@@ -15,7 +12,7 @@ public class ElementAtTest {
 	public void exampleElementAt() {
 		Observable<Integer> values = Observable.range(100, 10);
 
-		Subscription subscription = values
+		values
 		    .elementAt(2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -30,7 +27,7 @@ public class ElementAtTest {
 	public void exampleElementAtOrDefault() {
 		Observable<Integer> values = Observable.range(100, 10);
 
-		Subscription subscription = values
+		values
 		    .elementAtOrDefault(22, 0)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -53,7 +50,7 @@ public class ElementAtTest {
 		
 		Observable<Integer> values = Observable.range(100, 10);
 
-		Subscription subscription = values
+		values
 		    .elementAt(2)
 		    .subscribe(tester);
 		
@@ -68,7 +65,7 @@ public class ElementAtTest {
 		
 		Observable<Integer> values = Observable.range(100, 10);
 
-		Subscription subscription = values
+		values
 		    .elementAtOrDefault(22, 0)
 		    .subscribe(tester);
 		

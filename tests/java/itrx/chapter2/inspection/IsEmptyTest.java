@@ -1,7 +1,5 @@
 package itrx.chapter2.inspection;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +24,8 @@ public class IsEmptyTest {
 		        () -> System.out.println("Completed")
 		    );
 		
+		subscription.unsubscribe();
+		
 //		false
 //		Completed
 	}
@@ -42,6 +42,7 @@ public class IsEmptyTest {
 		    .subscribe(tester);
 		
 		scheduler.advanceTimeBy(1000, TimeUnit.MILLISECONDS);
+		subscription.unsubscribe();
 
 		tester.assertReceivedOnNext(Arrays.asList(false));
 		tester.assertTerminalEvent();

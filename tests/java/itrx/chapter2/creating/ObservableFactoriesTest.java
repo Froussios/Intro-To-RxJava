@@ -1,13 +1,12 @@
 package itrx.chapter2.creating;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
 
 public class ObservableFactoriesTest {
@@ -17,7 +16,7 @@ public class ObservableFactoriesTest {
 		TestSubscriber<String> tester = new TestSubscriber<String>();
 		
 		Observable<String> values = Observable.just("one", "two", "three");
-		Subscription subscription = values.subscribe(tester);
+		values.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList("one", "two", "three"));
 		tester.assertNoErrors();
@@ -29,7 +28,7 @@ public class ObservableFactoriesTest {
 		TestSubscriber<String> tester = new TestSubscriber<String>();
 		
 		Observable<String> values = Observable.empty();
-		Subscription subscription = values.subscribe(tester);
+		values.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList());
 		tester.assertNoErrors();
@@ -41,7 +40,7 @@ public class ObservableFactoriesTest {
 		TestSubscriber<String> tester = new TestSubscriber<String>();
 		
 		Observable<String> values = Observable.never();
-		Subscription subscription = values.subscribe(tester);
+		values.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList());
 		tester.assertNoErrors();
@@ -53,7 +52,7 @@ public class ObservableFactoriesTest {
 		TestSubscriber<String> tester = new TestSubscriber<String>();
 		
 		Observable<String> values = Observable.error(new Exception("Oops"));
-		Subscription subscription = values.subscribe(tester);
+		values.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList());
 		tester.assertTerminalEvent();
@@ -69,7 +68,7 @@ public class ObservableFactoriesTest {
 		    o.onNext("Hello");
 		    o.onCompleted();
 		});
-		Subscription subscription = values.subscribe(tester);
+		values.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList("Hello"));
 		tester.assertTerminalEvent();

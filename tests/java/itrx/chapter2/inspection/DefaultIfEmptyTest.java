@@ -1,13 +1,12 @@
 package itrx.chapter2.inspection;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
 
 public class DefaultIfEmptyTest {
@@ -15,7 +14,7 @@ public class DefaultIfEmptyTest {
 	public void exampleDefaultIfEmpty() {
 		Observable<Integer> values = Observable.range(0,10);
 
-		Subscription subscription = values
+		values
 		    .take(0)
 		    .defaultIfEmpty(2)
 		    .subscribe(
@@ -31,7 +30,7 @@ public class DefaultIfEmptyTest {
 	public void exampleDefaultIfEmptyError() {
 		Observable<Integer> values = Observable.error(new Exception());
 
-		Subscription subscription = values
+		values
 		    .defaultIfEmpty(2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -48,7 +47,7 @@ public class DefaultIfEmptyTest {
 		
 		Observable<Integer> values = Observable.range(0,10);
 
-		Subscription subscription = values
+		values
 		    .take(0)
 		    .defaultIfEmpty(2)
 		    .subscribe(tester);
@@ -64,7 +63,7 @@ public class DefaultIfEmptyTest {
 		
 		Observable<Integer> values = Observable.error(new Exception());
 
-		Subscription subscription = values
+		values
 		    .defaultIfEmpty(2)
 		    .subscribe(tester);
 		

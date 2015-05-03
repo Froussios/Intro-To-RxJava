@@ -1,7 +1,5 @@
 package itrx.chapter2.inspection;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -26,6 +24,8 @@ public class ContainsTest {
 		        () -> System.out.println("Completed")
 		    );
 		
+		subscription.unsubscribe();
+		
 //		true
 //		Completed
 	}
@@ -42,6 +42,7 @@ public class ContainsTest {
 		    .subscribe(tester);
 		
 		scheduler.advanceTimeBy(1000, TimeUnit.MILLISECONDS);
+		subscription.unsubscribe();
 		
 		tester.assertReceivedOnNext(Arrays.asList(true));
 		tester.assertTerminalEvent();

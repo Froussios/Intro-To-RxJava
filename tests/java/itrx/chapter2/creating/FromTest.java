@@ -1,16 +1,11 @@
 package itrx.chapter2.creating;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
-import java.util.concurrent.FutureTask;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
-import rx.schedulers.TestScheduler;
 
 public class FromTest {
 
@@ -20,7 +15,7 @@ public class FromTest {
 		
 		Integer[] input = {1,2,3};
 		Observable<Integer> values = Observable.from(input);
-		Subscription subscription = values.subscribe(tester);
+		values.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList(input));
 		tester.assertNoErrors();
@@ -33,7 +28,7 @@ public class FromTest {
 		
 		Iterable<Integer> input = Arrays.asList(1,2,3);
 		Observable<Integer> values = Observable.from(input);
-		Subscription subscription = values.subscribe(tester);
+		values.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList(1,2,3));
 		tester.assertNoErrors();

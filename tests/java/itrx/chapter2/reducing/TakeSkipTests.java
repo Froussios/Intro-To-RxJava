@@ -1,7 +1,5 @@
 package itrx.chapter2.reducing;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -19,7 +17,7 @@ public class TakeSkipTests {
 	public void exampleTake() {
 		Observable<Integer> values = Observable.range(0, 5);
 		
-		Subscription first2 = values
+		values
 		    .take(2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -35,7 +33,7 @@ public class TakeSkipTests {
 	public void exampleSkip() {
 		Observable<Integer> values = Observable.range(0, 5);
 
-		Subscription subscription = values
+		values
 		    .skip(2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -60,6 +58,8 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
+		subscription.unsubscribe();
+		
 //		0
 //		1
 //		Completed
@@ -75,6 +75,8 @@ public class TakeSkipTests {
 		        e -> System.out.println("Error: " + e),
 		        () -> System.out.println("Completed")
 		    );
+		
+		subscription.unsubscribe();
 		
 //		2
 //		3
@@ -93,6 +95,8 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
+		subscription.unsubscribe();
+		
 //		0
 //		1
 //		Completed
@@ -109,6 +113,8 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
+		subscription.unsubscribe();
+		
 //		2
 //		3
 //		4
@@ -118,7 +124,7 @@ public class TakeSkipTests {
 	public void exampleSkipLast() {
 		Observable<Integer> values = Observable.range(0,5);
 
-		Subscription subscription = values
+		values
 		    .skipLast(2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -135,7 +141,7 @@ public class TakeSkipTests {
 	public void exampleTakeLast() {
 		Observable<Integer> values = Observable.range(0,5);
 
-		Subscription subscription = values
+		values
 		    .takeLast(2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -160,6 +166,8 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
+		subscription.unsubscribe();
+		
 //		0
 //		1
 //		Completed
@@ -177,6 +185,8 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
+		subscription.unsubscribe();
+		
 //		2
 //		3
 //		4
@@ -191,7 +201,7 @@ public class TakeSkipTests {
 		
 		Observable<Integer> values = Observable.range(0, 5);
 		
-		Subscription first2 = values
+		values
 			    .take(2)
 			    .subscribe(tester);
 		
@@ -206,7 +216,7 @@ public class TakeSkipTests {
 		
 		Observable<Integer> values = Observable.range(0, 5);
 		
-		Subscription subscription = values
+		values
 			    .skip(2)
 			    .subscribe(tester);
 		
@@ -227,6 +237,7 @@ public class TakeSkipTests {
 		    .subscribe(tester);
 		
 		scheduler.advanceTimeBy(1000, TimeUnit.MILLISECONDS);
+		subscription.unsubscribe();
 		
 		tester.assertReceivedOnNext(Arrays.asList(0L,1L));
 		tester.assertTerminalEvent();
@@ -245,6 +256,7 @@ public class TakeSkipTests {
 		    .subscribe(tester);
 		
 		scheduler.advanceTimeBy(550, TimeUnit.MILLISECONDS);
+		subscription.unsubscribe();
 		
 		tester.assertReceivedOnNext(Arrays.asList(2L, 3L, 4L));
 		tester.assertNoErrors();
@@ -262,6 +274,7 @@ public class TakeSkipTests {
 		    .subscribe(tester);
 		
 		scheduler.advanceTimeBy(550, TimeUnit.MILLISECONDS);
+		subscription.unsubscribe();
 		
 		tester.assertReceivedOnNext(Arrays.asList(0L, 1L));
 		tester.assertTerminalEvent();
@@ -280,6 +293,7 @@ public class TakeSkipTests {
 		    .subscribe(tester);
 		
 		scheduler.advanceTimeBy(550, TimeUnit.MILLISECONDS);
+		subscription.unsubscribe();
 		
 		tester.assertReceivedOnNext(Arrays.asList(2L, 3L, 4L));
 		tester.assertNoErrors();
@@ -291,7 +305,7 @@ public class TakeSkipTests {
 		
 		Observable<Integer> values = Observable.range(0,5);
 
-		Subscription subscription = values
+		values
 		    .skipLast(2)
 		    .subscribe(tester);
 		
@@ -306,7 +320,7 @@ public class TakeSkipTests {
 		
 		Observable<Integer> values = Observable.range(0,5);
 
-		Subscription subscription = values
+		values
 		    .takeLast(2)
 		    .subscribe(tester);
 		
@@ -328,6 +342,7 @@ public class TakeSkipTests {
 		    .subscribe(tester);
 		
 		scheduler.advanceTimeBy(550, TimeUnit.MILLISECONDS);
+		subscription.unsubscribe();
 		
 		tester.assertReceivedOnNext(Arrays.asList(0L,1L));
 		tester.assertTerminalEvent();
@@ -347,6 +362,7 @@ public class TakeSkipTests {
 		    .subscribe(tester);
 		
 		scheduler.advanceTimeBy(550, TimeUnit.MILLISECONDS);
+		subscription.unsubscribe();
 		
 		tester.assertReceivedOnNext(Arrays.asList(2L,3L,4L));
 		tester.assertNoErrors();

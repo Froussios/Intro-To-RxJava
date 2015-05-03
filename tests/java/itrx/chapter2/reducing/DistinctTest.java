@@ -1,13 +1,10 @@
 package itrx.chapter2.reducing;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
 
 public class DistinctTest {
@@ -25,7 +22,7 @@ public class DistinctTest {
 		    o.onCompleted();
 		});
 
-		Subscription subscription = values
+		values
 		    .distinct()
 		    .subscribe(tester);
 		
@@ -47,7 +44,7 @@ public class DistinctTest {
 		    o.onCompleted();
 		});
 
-		Subscription subscription = values
+		values
 		    .distinct(v -> v.charAt(0))
 		    .subscribe(tester);
 		
@@ -69,7 +66,7 @@ public class DistinctTest {
 		    o.onCompleted();
 		});
 
-		Subscription subscription = values
+		values
 		    .distinctUntilChanged()
 		    .subscribe(tester);
 		
@@ -91,7 +88,7 @@ public class DistinctTest {
 		    o.onCompleted();
 		});
 
-		Subscription subscription = values
+		values
 		    .distinctUntilChanged(v -> v.charAt(0))
 		    .subscribe(tester);
 		

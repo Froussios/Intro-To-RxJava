@@ -1,7 +1,5 @@
 package itrx.chapter2.aggregation;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 

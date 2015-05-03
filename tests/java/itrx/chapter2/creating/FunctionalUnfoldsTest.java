@@ -1,6 +1,6 @@
 package itrx.chapter2.creating;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -38,6 +38,8 @@ public class FunctionalUnfoldsTest {
 		tester.assertReceivedOnNext(Arrays.asList(0L, 1L, 2L, 3L));
 		tester.assertNoErrors();
 		assertEquals(tester.getOnCompletedEvents().size(), 0);
+		
+		subscription.unsubscribe();
 	}
 	
 	public void testTimer() {
@@ -51,18 +53,24 @@ public class FunctionalUnfoldsTest {
 		tester.assertReceivedOnNext(Arrays.asList(0L));
 		tester.assertNoErrors();
 		tester.assertTerminalEvent();
+		
+		subscription.unsubscribe();
 	}
 	
 	public void testTimerWithRepeat() {
 		TestSubscriber<Long> tester = new TestSubscriber<Long>();
 		TestScheduler scheduler = Schedulers.test();
 		
-		Observable<Long> values = Observable.timer(2, 1, TimeUnit.SECONDS);
+		Observable<Long> values = Observable.timer(2, 1, TimeUnit.SECONDS, scheduler);
 		Subscription subscription = values.subscribe(tester);
+		
+		scheduler.advanceTimeBy(6, TimeUnit.SECONDS);
 		
 		tester.assertReceivedOnNext(Arrays.asList(0L,1L,2L));
 		tester.assertNoErrors();
 		assertEquals(tester.getOnCompletedEvents().size(), 0); // Hasn't terminated
+		
+		subscription.unsubscribe();
 	}
 
 }

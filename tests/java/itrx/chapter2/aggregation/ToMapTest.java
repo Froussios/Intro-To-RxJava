@@ -1,19 +1,18 @@
 package itrx.chapter2.aggregation;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.junit.Test;
 
 import rx.Observable;
 import rx.Subscriber;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
-import rx.schedulers.Schedulers;
-import rx.schedulers.TestScheduler;
-import rx.subjects.ReplaySubject;
-import rx.subjects.Subject;
 
 public class ToMapTest {
 	
@@ -134,8 +133,8 @@ public class ToMapTest {
 		    .toMultimap(
 		        person -> person.age,
 		        person -> person.name,
-		        () -> new HashMap(),
-		        (key) -> new ArrayList())
+		        () -> new HashMap<>(),
+		        (key) -> new ArrayList<>())
 		    .subscribe(new PrintSubscriber("toMap"));
 		
 //		toMap: {35=[Will, Saul], 40=[Nick]}
@@ -147,6 +146,7 @@ public class ToMapTest {
 	// Tests
 	//
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void  testToMap() {
 		TestSubscriber<Map<String, Person>> tester = new TestSubscriber<>();
@@ -175,6 +175,7 @@ public class ToMapTest {
 //		toMap: Completed
 	}
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void testToMapWithSelector() {
 		TestSubscriber<Map<String, Integer>> tester = new TestSubscriber<>();
@@ -202,6 +203,7 @@ public class ToMapTest {
 		tester.assertNoErrors();
 	}
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void testToMapWithCustomContainer() {
 		TestSubscriber<Map<String, Integer>> tester = new TestSubscriber<>();
@@ -230,6 +232,7 @@ public class ToMapTest {
 		tester.assertNoErrors();
 	}
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void testToMultimap() {
 		TestSubscriber<Map<Integer, Collection<String>>> tester = new TestSubscriber<>();
@@ -256,6 +259,7 @@ public class ToMapTest {
 		tester.assertNoErrors();
 	}
 	
+	@SuppressWarnings("serial")
 	@Test
 	public void testToMultimapWithCustomContainers() {
 		TestSubscriber<Map<Integer, Collection<String>>> tester = new TestSubscriber<>();
@@ -272,8 +276,8 @@ public class ToMapTest {
 		    .toMultimap(
 		        person -> person.age,
 		        person -> person.name,
-		        () -> new HashMap(),
-		        (key) -> new ArrayList())
+		        () -> new HashMap<>(),
+		        (key) -> new ArrayList<>())
 		    .subscribe(tester);
 		
 		assertEquals(tester.getOnNextEvents(), Arrays.asList(new HashMap<Integer, Collection<String>>() {{

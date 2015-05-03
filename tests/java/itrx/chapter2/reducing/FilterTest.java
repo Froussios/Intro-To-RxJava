@@ -1,13 +1,10 @@
 package itrx.chapter2.reducing;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 
 import org.junit.Test;
 
 import rx.Observable;
-import rx.Subscription;
 import rx.observers.TestSubscriber;
 
 public class FilterTest {
@@ -17,7 +14,7 @@ public class FilterTest {
 		TestSubscriber<Integer> tester = new TestSubscriber<Integer>();
 		
 		Observable<Integer> values = Observable.range(0,10);
-		Subscription oddNumbers = values
+		values
 		    .filter(v -> v % 2 == 0)
 		    .subscribe(tester);
 		

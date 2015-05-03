@@ -1,6 +1,7 @@
 package itrx.chapter1;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 
@@ -46,6 +47,8 @@ public class UnsubscribingTests {
 		tester2.assertReceivedOnNext(Arrays.asList(0,1,2));
 		tester1.assertUnsubscribed();
 		assertFalse(tester2.isUnsubscribed());
+		
+		subscription2.unsubscribe();
 	}
 	
 	@Test
