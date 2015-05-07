@@ -29,8 +29,8 @@ public class SideEffectTest {
 	    
 	    @Override
 	    public boolean equals(Object obj) {
-	    	if (obj instanceof Indexed) {
-	    		Indexed<T> other = (Indexed<T>) obj;
+	    	if (obj instanceof Indexed<?>) {
+	    		Indexed<?> other = (Indexed<?>) obj;
 	    		return this.index == other.index &&
 	    				this.item.equals(other.item);
 	    	}
