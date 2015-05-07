@@ -1,0 +1,104 @@
+package itrx.chapter3.custom;
+
+import java.util.Arrays;
+
+import org.junit.Test;
+
+import rx.Observable;
+import rx.observers.TestSubscriber;
+
+public class ComposeTest {
+
+	/**
+	 * A custom operator for calculating a running average
+	 * 
+	 * @author Chris
+	 *
+	 */
+	public static class RunningAverage implements Observable.Transformer<Integer, Double> {
+	    private static class AverageAcc {
+	        public final int sum;
+	        public final int count;
+	        public AverageAcc(int sum, int count) {
+	            this.sum = sum;
+	            this.count = count;
+	        }
+	    }
+
+	    final int threshold;
+
+	    public RunningAverage() {
+	        this.threshold = Integer.MAX_VALUE;
+	    }
+
+	    public RunningAverage(int threshold) {
+	        this.threshold = threshold;
+	    }
+
+	    @Override
+	    public Observable<Double> call(Observable<Integer> source) {
+	        return source
+	            .filter(i -> i< this.threshold)
+	            .scan(
+	                new AverageAcc(0,0),
+	                (acc, v) -> new AverageAcc(acc.sum + v, acc.count + 1))
+	            .filter(acc -> acc.count > 0)
+	            .map(acc -> acc.sum/(double)acc.count);
+	    }
+	}
+	
+	public void exampleComposeFromClass() {
+		Observable.just(2, 3, 10, 12, 4)
+			.compose(new RunningAverage())
+			.subscribe(System.out::println);
+		
+//		2.0
+//		2.5
+//		5.0
+//		6.75
+//		6.2
+	}
+	
+	public void exampleComposeParameterised() {
+		Observable.just(2, 3, 10, 12, 4)
+			.compose(new RunningAverage(5))
+			.subscribe(System.out::println);
+		
+//		2.0
+//		2.5
+//		3.0
+	}
+	
+	
+	//
+	// Test
+	//
+	
+	@Test
+	public void testComposeFromClass() {
+		TestSubscriber<Double> tester = new TestSubscriber<>();
+		
+		Observable.just(2, 3, 10, 12, 4)
+			.compose(new RunningAverage())
+			.subscribe(tester);
+		
+		tester.assertReceivedOnNext(Arrays.asList(2.0, 2.5, 5.0, 6.75, 6.2));
+		tester.assertTerminalEvent();
+		tester.assertNoErrors();
+	}
+	
+	@Test
+	public void testComposeParameterised() {
+		TestSubscriber<Double> tester = new TestSubscriber<>();
+		
+		Observable.just(2, 3, 10, 12, 4)
+			.compose(new RunningAverage(5))
+			.subscribe(tester);
+		
+		tester.assertReceivedOnNext(Arrays.asList(2.0, 2.5, 3.0));
+		tester.assertTerminalEvent();
+		tester.assertNoErrors();
+	}
+	
+
+}
