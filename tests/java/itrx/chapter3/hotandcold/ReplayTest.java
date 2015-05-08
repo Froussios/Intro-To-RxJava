@@ -37,6 +37,34 @@ public class ReplayTest {
 //		Second: 3
 	}
 	
+	public void exampleReplayWithBufferSize() throws InterruptedException {
+		ConnectableObservable<Long> source = Observable.interval(1000, TimeUnit.MILLISECONDS)
+			.take(5)
+			.replay(2);
+
+		source.connect();
+		Thread.sleep(4500);
+		source.subscribe(System.out::println);
+		
+//		2
+//		3
+//		4
+	}
+	
+	public void exampleReplayWithTime() throws InterruptedException {
+		ConnectableObservable<Long> source = Observable.interval(1000, TimeUnit.MILLISECONDS)
+			.take(5)
+			.replay(2000, TimeUnit.MILLISECONDS);
+
+		source.connect();
+		Thread.sleep(4500);
+		source.subscribe(System.out::println);
+		
+//		2
+//		3
+//		4
+	}
+	
 	
 	//
 	// Test
@@ -67,6 +95,45 @@ public class ReplayTest {
 		tester2.assertReceivedOnNext(Arrays.asList(0L, 1L, 2L, 3L, 4L, 5L));
 		
 		connection.unsubscribe();
+	}
+	
+	@Test
+	public void testReplayWithBufferSize() {
+		TestScheduler scheduler = Schedulers.test();
+		TestSubscriber<Long> tester = new TestSubscriber<>();
+		
+		ConnectableObservable<Long> source = Observable.interval(1000, TimeUnit.MILLISECONDS, scheduler)
+			.take(5)
+			.replay(2, scheduler);
+
+		source.connect();
+		scheduler.advanceTimeBy(4500, TimeUnit.MILLISECONDS);
+		source.subscribe(tester);
+		scheduler.triggerActions();
+		tester.assertReceivedOnNext(Arrays.asList(2L, 3L));
+		scheduler.advanceTimeBy(500, TimeUnit.MILLISECONDS);
+		tester.assertReceivedOnNext(Arrays.asList(2L, 3L, 4L));
+	}
+	
+	@Test
+	public void testReplayWithTime() throws InterruptedException {
+		TestScheduler scheduler = Schedulers.test();
+		TestSubscriber<Long> tester = new TestSubscriber<>();
+		
+		ConnectableObservable<Long> source = Observable.interval(1000, TimeUnit.MILLISECONDS, scheduler)
+			.take(5)
+			.replay(2000, TimeUnit.MILLISECONDS, scheduler);
+
+		source.connect();
+		scheduler.advanceTimeBy(4500, TimeUnit.MILLISECONDS);
+		source.subscribe(tester);
+		tester.assertReceivedOnNext(Arrays.asList(2L, 3L));
+		scheduler.advanceTimeBy(500, TimeUnit.MILLISECONDS);
+		tester.assertReceivedOnNext(Arrays.asList(2L, 3L, 4L));
+		
+//		2
+//		3
+//		4
 	}
 
 }
