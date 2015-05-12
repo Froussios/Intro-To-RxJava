@@ -60,12 +60,12 @@ public class GroupJoinTest {
 		    )
 		    .subscribe();
 		
-//		L0: [R0, R1, R2]
-//		L1: [R0, R1, R2]
-//		L2: [R1, R2]
-//		L3: [R1, R2]
-//		L4: [R2]
-//		L5: [R2]
+		// L0: [R0, R1, R2]
+		// L1: [R0, R1, R2]
+		// L2: [R1, R2]
+		// L3: [R1, R2]
+		// L4: [R2]
+		// L5: [R2]
 	}
 	
 	

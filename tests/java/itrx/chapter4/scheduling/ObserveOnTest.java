@@ -21,9 +21,9 @@ public class ObserveOnTest {
 		    .subscribe(i ->
 		        System.out.println("Received " + i + " on " + Thread.currentThread().getId()));
 		
-//		Created on 1
-//		Received 1 on 13
-//		Received 2 on 13
+		// Created on 1
+		// Received 1 on 13
+		// Received 2 on 13
 	}
 
 	public void exampleObserveOnBeforeAfter() {
@@ -40,11 +40,11 @@ public class ObserveOnTest {
 		        System.out.println("After " + i + " on " + Thread.currentThread().getId()))
 		    .subscribe();
 		
-//		Created on 1
-//		Before 1 on 1
-//		Before 2 on 1
-//		After 1 on 13
-//		After 2 on 13
+		// Created on 1
+		// Before 1 on 1
+		// Before 2 on 1
+		// After 1 on 13
+		// After 2 on 13
 	}
 	
 	

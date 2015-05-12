@@ -54,16 +54,16 @@ public class JoinTest {
 		    .take(10)
 		    .subscribe(System.out::println);
 		
-//		L0 - R0
-//		L1 - R0
-//		L0 - R1
-//		L1 - R1
-//		L2 - R1
-//		L3 - R1
-//		L0 - R2
-//		L1 - R2
-//		L2 - R2
-//		L3 - R2
+		// L0 - R0
+		// L1 - R0
+		// L0 - R1
+		// L1 - R1
+		// L2 - R1
+		// L3 - R1
+		// L0 - R2
+		// L1 - R2
+		// L2 - R2
+		// L3 - R2
 	}
 	
 	public void exampleJoin2Way() {
@@ -84,16 +84,16 @@ public class JoinTest {
 		    .take(10)
 		    .subscribe(System.out::println);
 		
-//		L0 - R0
-//		L0 - R1
-//		L1 - R1
-//		L1 - R2
-//		L2 - R2
-//		L2 - R3
-//		L3 - R3
-//		L3 - R4
-//		L4 - R4
-//		L4 - R5
+		// L0 - R0
+		// L0 - R1
+		// L1 - R1
+		// L1 - R2
+		// L2 - R2
+		// L2 - R3
+		// L3 - R3
+		// L3 - R4
+		// L4 - R4
+		// L4 - R5
 	}
 	
 	

@@ -38,15 +38,15 @@ public class TestSchedulerTest {
 		s.advanceTimeTo(40, TimeUnit.SECONDS);
 		System.out.println("Virtual time: " + s.now());
 		
-//		Advancing to 1ms
-//		Immediate
-//		Virtual time: 1
-//		Advancing to 10s
-//		Virtual time: 10000
-//		Advancing to 40s
-//		20s
-//		40s
-//		Virtual time: 40000
+		// Advancing to 1ms
+		// Immediate
+		// Virtual time: 1
+		// Advancing to 10s
+		// Virtual time: 10000
+		// Advancing to 40s
+		// 20s
+		// 40s
+		// Virtual time: 40000
 	}
 	
 	public void exampleTimeBy() {
@@ -73,15 +73,15 @@ public class TestSchedulerTest {
 		s.advanceTimeBy(40, TimeUnit.SECONDS);
 		System.out.println("Virtual time: " + s.now());
 		
-//		Advancing by 1ms
-//		Immediate
-//		Virtual time: 1
-//		Advancing by 10s
-//		Virtual time: 10001
-//		Advancing by 40s
-//		20s
-//		40s
-//		Virtual time: 50001
+		// Advancing by 1ms
+		// Immediate
+		// Virtual time: 1
+		// Advancing by 10s
+		// Virtual time: 10001
+		// Advancing by 40s
+		// 20s
+		// 40s
+		// Virtual time: 50001
 	}
 
 	public void exampleTriggerActions() {
@@ -96,8 +96,8 @@ public class TestSchedulerTest {
 		s.triggerActions();
 		System.out.println("Virtual time: " + s.now());
 		
-//		Immediate
-//		Virtual time: 0
+		// Immediate
+		// Virtual time: 0
 	}
 	
 	public void exampleCollision() {
@@ -115,9 +115,9 @@ public class TestSchedulerTest {
 
 		s.advanceTimeTo(20, TimeUnit.SECONDS);
 		
-//		First
-//		Second
-//		Third
+		// First
+		// Second
+		// Third
 	}
 	
 	

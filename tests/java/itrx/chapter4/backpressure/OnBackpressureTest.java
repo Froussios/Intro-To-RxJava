@@ -32,19 +32,19 @@ public class OnBackpressureTest {
 		        System.out::println
 		    );
 		
-//		0
-//		1
-//		2
-//		3
-//		4
-//		5
-//		6
-//		7
-//		8
-//		9
-//		10
-//		11
-//		rx.exceptions.MissingBackpressureException: Overflowed buffer of 1000
+		// 0
+		// 1
+		// 2
+		// 3
+		// 4
+		// 5
+		// 6
+		// 7
+		// 8
+		// 9
+		// 10
+		// 11
+		// rx.exceptions.MissingBackpressureException: Overflowed buffer of 1000
 	}
 	
 	public void exampleOnBackpressureDrop() {
@@ -60,15 +60,15 @@ public class OnBackpressureTest {
 	        },
 	        System.out::println);
 		
-//		0
-//		1
-//		2
-//		...
-//		126
-//		127
-//		12861
-//		12862
-//		...
+		// 0
+		// 1
+		// 2
+		// ...
+		// 126
+		// 127
+		// 12861
+		// 12862
+		// ...
 	}
 	
 	

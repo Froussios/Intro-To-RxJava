@@ -25,18 +25,18 @@ public class WindowTest {
 		            .window(3,1))
 		    .subscribe(System.out::println);
 		
-//		0
-//		1
-//		1
-//		2
-//		2
-//		2
-//		3
-//		3
-//		3
-//		4
-//		4
-//		4
+		// 0
+		// 1
+		// 1
+		// 2
+		// 2
+		// 2
+		// 3
+		// 3
+		// 3
+		// 4
+		// 4
+		// 4
 	}
 	
 	public void exampleByCount() {
@@ -45,11 +45,11 @@ public class WindowTest {
 			.flatMap(o -> o.toList())
 			.subscribe(System.out::println);
 		
-//		[0, 1, 2]
-//		[1, 2, 3]
-//		[2, 3, 4]
-//		[3, 4]
-//		[4]
+		// [0, 1, 2]
+		// [1, 2, 3]
+		// [2, 3, 4]
+		// [3, 4]
+		// [4]
 
 	}
 	
@@ -60,12 +60,12 @@ public class WindowTest {
 			.flatMap(o -> o.toList())
 			.subscribe(System.out::println);
 		
-//		[0, 1]
-//		[0, 1, 2]
-//		[1, 2, 3]
-//		[2, 3, 4]
-//		[3, 4]
-//		[4]
+		// [0, 1]
+		// [0, 1, 2]
+		// [1, 2, 3]
+		// [2, 3, 4]
+		// [3, 4]
+		// [4]
 	}
 	
 	public void exampleBySignal() {
@@ -77,11 +77,11 @@ public class WindowTest {
 			.flatMap(o -> o.toList())
 			.subscribe(System.out::println);
 		
-//		[1, 2]
-//		[2, 3]
-//		[3, 4]
-//		[4]
-//		[]
+		// [1, 2]
+		// [2, 3]
+		// [3, 4]
+		// [4]
+		// []
 	}
 	
 	

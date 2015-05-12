@@ -27,9 +27,9 @@ public class SchedulersTest {
 		    System.out.println("End");
 		});
 		
-//		Start
-//		Inner
-//		End
+		// Start
+		// Inner
+		// End
 	}
 	
 	public void exampleTrampoline() {
@@ -41,9 +41,9 @@ public class SchedulersTest {
 		    System.out.println("End");
 		});
 		
-//		Start
-//		End
-//		Inner
+		// Start
+		// End
+		// Inner
 	}
 	
 	public void exampleNewThread() throws InterruptedException {
@@ -58,11 +58,11 @@ public class SchedulersTest {
 		Thread.sleep(500);
 		worker.schedule(() -> printThread("Again"));
 		
-//		Main on 1
-//		Start on 11
-//		End on 11
-//		Inner on 11
-//		Again on 11
+		// Main on 1
+		// Start on 11
+		// End on 11
+		// Inner on 11
+		// Again on 11
 	}
 	
 	

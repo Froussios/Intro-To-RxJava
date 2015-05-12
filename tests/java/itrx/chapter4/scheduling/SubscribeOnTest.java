@@ -28,11 +28,11 @@ public class SubscribeOnTest {
 		
 		System.out.println("Finished main: " + Thread.currentThread().getId());
 		
-//		Main: 1
-//		Created on 1
-//		Received 1 on 1
-//		Received 2 on 1
-//		Finished main: 1
+		// Main: 1
+		// Created on 1
+		// Received 1 on 1
+		// Received 2 on 1
+		// Finished main: 1
 	}
 	
 	public void exampleSubscribeOn() {
@@ -51,11 +51,11 @@ public class SubscribeOnTest {
 		
 		System.out.println("Finished main: " + Thread.currentThread().getId());
 		
-//		Main: 1
-//		Created on 1
-//		Received 1 on 11
-//		Received 2 on 11
-//		Finished main: 11
+		// Main: 1
+		// Created on 1
+		// Received 1 on 11
+		// Received 2 on 11
+		// Finished main: 11
 	}
 	
 	public void exampleIntervalThread() {
@@ -68,11 +68,11 @@ public class SubscribeOnTest {
 
 		System.out.println("Finished main: " + Thread.currentThread().getId());
 		
-//		Main: 1
-//		Finished main: 1
-//		Received 0 on 11
-//		Received 1 on 11
-//		Received 2 on 11
+		// Main: 1
+		// Finished main: 1
+		// Received 0 on 11
+		// Received 1 on 11
+		// Received 2 on 11
 	}
 	
 	

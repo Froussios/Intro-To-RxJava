@@ -23,6 +23,14 @@ public class ReactivePullTest {
 		tester.requestMore(2);
 		System.out.println("Requesting 3 more");
 		tester.requestMore(3);
+		
+		// Requesting 2 more
+		// Consumed 0
+		// Consumed 1
+		// Requesting 3 more
+		// Consumed 2
+		// Consumed 3
+		// Consumed 4
 	}
 	
 	
@@ -31,7 +39,6 @@ public class ReactivePullTest {
 	//
 	
 	@Test
-	
 	public void test() {
 		List<Integer> received = new ArrayList<>();
 		ControlledPullSubscriber<Integer> tester = new ControlledPullSubscriber<Integer>(received::add);

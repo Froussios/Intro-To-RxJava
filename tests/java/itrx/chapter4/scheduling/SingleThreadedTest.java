@@ -25,12 +25,12 @@ public class SingleThreadedTest {
 		new Thread(r).start();
 		new Thread(r).start();
 		
-//		onNext(1) on 1
-//		Received 1 on 1
-//		onNext(2) on 11
-//		Received 2 on 11
-//		onNext(3) on 12
-//		Received 3 on 12
+		// onNext(1) on 1
+		// Received 1 on 1
+		// onNext(2) on 11
+		// Received 2 on 11
+		// onNext(3) on 12
+		// Received 3 on 12
 	}
 	
 	

@@ -35,8 +35,8 @@ public class SchedulerTest {
 		    () -> System.out.println(System.currentTimeMillis()-start),
 		    5, TimeUnit.SECONDS);
 		
-//		5033
-//		5035
+		// 5033
+		// 5035
 	}
 	
 	public void exampleCancelWork() {
@@ -53,7 +53,7 @@ public class SchedulerTest {
 		    () -> System.out.println(System.currentTimeMillis()-start),
 		    5, TimeUnit.SECONDS);
 		
-//		5032
+		// 5032
 	}
 	
 	public void exampleCancelWithInterrupt() throws InterruptedException {
@@ -70,7 +70,7 @@ public class SchedulerTest {
 		Thread.sleep(500);
 		worker.unsubscribe();
 		
-//		Action interrupted
+		// Action interrupted
 	}
 	
 	

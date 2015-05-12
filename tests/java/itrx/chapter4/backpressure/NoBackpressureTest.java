@@ -32,8 +32,8 @@ public class NoBackpressureTest {
 		    } catch (Exception e) { }
 		});
 		
-//		1
-//		2
+		// 1
+		// 2
 	}
 	
 	public void exampleNoBackpressure() {
@@ -48,9 +48,9 @@ public class NoBackpressureTest {
 		        },
 		        System.out::println);
 		
-//		0
-//		1
-//		rx.exceptions.MissingBackpressureException
+		// 0
+		// 1
+		// rx.exceptions.MissingBackpressureException
 	}
 	
 	
