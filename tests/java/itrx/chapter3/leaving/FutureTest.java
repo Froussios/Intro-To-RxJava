@@ -27,8 +27,8 @@ public class FutureTest {
 			e.printStackTrace();
 		}
 		
-//		Emitted: 0
-//		0
+		// Emitted: 0
+		// 0
 	}
 	
 	

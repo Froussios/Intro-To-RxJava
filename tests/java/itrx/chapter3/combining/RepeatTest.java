@@ -39,10 +39,10 @@ public class RepeatTest {
 			.take(4)
 		    .subscribe(System.out::println);
 		
-//		0
-//		1
-//		0
-//		1
+		// 0
+		// 1
+		// 0
+		// 1
 	}
 	
 	public void exampleRepeat2() {
@@ -51,10 +51,10 @@ public class RepeatTest {
 		words.repeat(2)
 		    .subscribe(System.out::println);
 		
-//		0
-//		1
-//		0
-//		1
+		// 0
+		// 1
+		// 0
+		// 1
 	}
 	
 	public void exampleRepeatWhen2() {
@@ -67,11 +67,11 @@ public class RepeatTest {
 		    })
 		    .subscribe(new PrintSubscriber("repeatWhen"));
 		
-//		repeatWhen: 0
-//		repeatWhen: 1
-//		repeatWhen: 0
-//		repeatWhen: 1
-//		repeatWhen: Completed
+		// repeatWhen: 0
+		// repeatWhen: 1
+		// repeatWhen: 0
+		// repeatWhen: 1
+		// repeatWhen: Completed
 	}
 	
 	public void exampleRepeatWithInterval() {
@@ -86,16 +86,16 @@ public class RepeatTest {
 		    .take(2) // Stop after second repetition 
 		    .subscribe(new PrintSubscriber("repeatWhen"));
 		
-//		repeatWhen: 0
-//		repeatWhen: 1
-//		repeatWhen: 2
-//		repeatWhen: 3
-//		repeatWhen: 4
-//		repeatWhen: 0
-//		repeatWhen: 1
-//		repeatWhen: 2
-//		repeatWhen: 3
-//		repeatWhen: 4
+		// repeatWhen: 0
+		// repeatWhen: 1
+		// repeatWhen: 2
+		// repeatWhen: 3
+		// repeatWhen: 4
+		// repeatWhen: 0
+		// repeatWhen: 1
+		// repeatWhen: 2
+		// repeatWhen: 3
+		// repeatWhen: 4
 	}
 	
 	

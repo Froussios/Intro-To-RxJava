@@ -49,10 +49,10 @@ public class SideEffectTest {
 		        });
 		indexed.subscribe(w -> System.out.println(index.getCount() + ": " + w));
 		
-//		1: No
-//		2: side
-//		3: effects
-//		4: please
+		// 1: No
+		// 2: side
+		// 3: effects
+		// 4: please
 	}
 	
 	public void exampleBadIndexFail() {
@@ -67,14 +67,14 @@ public class SideEffectTest {
 		indexed.subscribe(w -> System.out.println("1st observer: " + index.getCount() + ": " + w));
 		indexed.subscribe(w -> System.out.println("2nd observer: " + index.getCount() + ": " + w));
 		
-//		1st observer: 1: No
-//		1st observer: 2: side
-//		1st observer: 3: effects
-//		1st observer: 4: please
-//		2nd observer: 5: No
-//		2nd observer: 6: side
-//		2nd observer: 7: effects
-//		2nd observer: 8: please
+		// 1st observer: 1: No
+		// 1st observer: 2: side
+		// 1st observer: 3: effects
+		// 1st observer: 4: please
+		// 2nd observer: 5: No
+		// 2nd observer: 6: side
+		// 2nd observer: 7: effects
+		// 2nd observer: 8: please
 	}
 	
 	public void exampleSafeIndex() {
@@ -88,14 +88,14 @@ public class SideEffectTest {
 		indexed.subscribe(w -> System.out.println("1st observer: " + w.index + ": " + w.item));
 		indexed.subscribe(w -> System.out.println("2nd observer: " + w.index + ": " + w.item));
 		
-//		1st observer: 1: No
-//		1st observer: 2: side
-//		1st observer: 3: effects
-//		1st observer: 4: please
-//		2nd observer: 1: No
-//		2nd observer: 2: side
-//		2nd observer: 3: effects
-//		2nd observer: 4: please
+		// 1st observer: 1: No
+		// 1st observer: 2: side
+		// 1st observer: 3: effects
+		// 1st observer: 4: please
+		// 2nd observer: 1: No
+		// 2nd observer: 2: side
+		// 2nd observer: 3: effects
+		// 2nd observer: 4: please
 	}
 	
 	

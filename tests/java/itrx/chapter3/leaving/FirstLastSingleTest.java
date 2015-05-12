@@ -22,7 +22,7 @@ public class FirstLastSingleTest {
 		    .first(i -> i>2);
 		System.out.println(value);
 		
-//		3
+		// 3
 	}
 	
 	public void exampleSingleError() {
@@ -39,7 +39,7 @@ public class FirstLastSingleTest {
 		    System.out.println("Caught: " + e);
 		}
 		
-//		Caught: java.lang.IllegalArgumentException: Sequence contains too many elements
+		// Caught: java.lang.IllegalArgumentException: Sequence contains too many elements
 	}
 	
 	

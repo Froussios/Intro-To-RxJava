@@ -20,16 +20,16 @@ public class MergeTest {
 		    .take(10)
 		    .subscribe(System.out::println);
 		
-//		Second
-//		First
-//		Second
-//		Second
-//		First
-//		Second
-//		Second
-//		First
-//		Second
-//		First
+		// Second
+		// First
+		// Second
+		// Second
+		// First
+		// Second
+		// Second
+		// First
+		// Second
+		// First
 	}
 	
 	

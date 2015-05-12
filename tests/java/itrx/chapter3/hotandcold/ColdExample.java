@@ -22,16 +22,16 @@ public class ColdExample {
 		Thread.sleep(500);
 		cold.subscribe(i -> System.out.println("Second: " + i));
 		
-//		First: 0
-//		First: 1
-//		First: 2
-//		Second: 0
-//		First: 3
-//		Second: 1
-//		First: 4
-//		Second: 2
-//		Second: 3
-//		Second: 4
+		// First: 0
+		// First: 1
+		// First: 2
+		// Second: 0
+		// First: 3
+		// Second: 1
+		// First: 4
+		// Second: 2
+		// Second: 3
+		// Second: 4
 	}
 	
 	

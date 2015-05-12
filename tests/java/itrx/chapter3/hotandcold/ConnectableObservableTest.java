@@ -22,16 +22,16 @@ public class ConnectableObservableTest {
 		Thread.sleep(500);
 		cold.subscribe(i -> System.out.println("Second: " + i));
 		
-//		First: 0
-//		First: 1
-//		First: 2
-//		Second: 2
-//		First: 3
-//		Second: 3
-//		First: 4
-//		Second: 4
-//		First: 5
-//		Second: 5
+		// First: 0
+		// First: 1
+		// First: 2
+		// Second: 2
+		// First: 3
+		// Second: 3
+		// First: 4
+		// Second: 4
+		// First: 5
+		// Second: 5
 	}
 	
 	public void exampleDisconnect() throws InterruptedException {
@@ -48,16 +48,16 @@ public class ConnectableObservableTest {
 		System.out.println("Reconnecting");
 		s = connectable.connect();
 		
-//		0
-//		1
-//		2
-//		3
-//		4
-//		Closing connection
-//		Reconnecting
-//		0
-//		1
-//		2
+		// 0
+		// 1
+		// 2
+		// 3
+		// 4
+		// Closing connection
+		// Reconnecting
+		// 0
+		// 1
+		// 2
 	}
 	
 	public void exampleUnsubscribe() throws InterruptedException {
@@ -72,17 +72,17 @@ public class ConnectableObservableTest {
 		System.out.println("Unsubscribing second");
 		s2.unsubscribe();
 		
-//		First: 0
-//		First: 1
-//		First: 2
-//		Seconds: 2
-//		First: 3
-//		Seconds: 3
-//		First: 4
-//		Seconds: 4
-//		Unsubscribing second
-//		First: 5
-//		First: 6
+		// First: 0
+		// First: 1
+		// First: 2
+		// Seconds: 2
+		// First: 3
+		// Seconds: 3
+		// First: 4
+		// Seconds: 4
+		// Unsubscribing second
+		// First: 5
+		// First: 6
 	}
 	
 	public void exampleRefcount() throws InterruptedException {
@@ -102,23 +102,23 @@ public class ConnectableObservableTest {
 		Thread.sleep(500);
 		s1 = cold.subscribe(i -> System.out.println("First: " + i));
 		
-//		First: 0
-//		First: 1
-//		First: 2
-//		Second: 2
-//		First: 3
-//		Second: 3
-//		Unsubscribe first
-//		First: 4
-//		First: 5
-//		First: 6
-//		Unsubscribe first
-//		First connection again
-//		First: 0
-//		First: 1
-//		First: 2
-//		First: 3
-//		First: 4
+		// First: 0
+		// First: 1
+		// First: 2
+		// Second: 2
+		// First: 3
+		// Second: 3
+		// Unsubscribe first
+		// First: 4
+		// First: 5
+		// First: 6
+		// Unsubscribe first
+		// First connection again
+		// First: 0
+		// First: 1
+		// First: 2
+		// First: 3
+		// First: 4
 	}
 	
 	

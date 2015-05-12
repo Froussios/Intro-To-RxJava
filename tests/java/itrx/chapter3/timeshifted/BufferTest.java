@@ -18,9 +18,9 @@ public class BufferTest {
 		    .buffer(4)
 		    .subscribe(System.out::println);
 		
-//		[0, 1, 2, 3]
-//		[4, 5, 6, 7]
-//		[8, 9]
+		// [0, 1, 2, 3]
+		// [4, 5, 6, 7]
+		// [8, 9]
 	}
 	
 	public void exampleByTime() {
@@ -28,11 +28,11 @@ public class BufferTest {
 		    .buffer(250, TimeUnit.MILLISECONDS)
 		    .subscribe(System.out::println);
 		
-//		[0, 1]
-//		[2, 3]
-//		[4, 5, 6]
-//		[7, 8]
-//		[9]
+		// [0, 1]
+		// [2, 3]
+		// [4, 5, 6]
+		// [7, 8]
+		// [9]
 	}
 	
 	public void exampleByCountAndTime() {
@@ -41,15 +41,15 @@ public class BufferTest {
 		    .buffer(250, TimeUnit.MILLISECONDS, 2)
 		    .subscribe(System.out::println);
 		
-//		[0, 1]
-//		[]
-//		[2, 3]
-//		[]
-//		[4, 5]
-//		[6]
-//		[7, 8]
-//		[]
-//		[9]
+		// [0, 1]
+		// []
+		// [2, 3]
+		// []
+		// [4, 5]
+		// [6]
+		// [7, 8]
+		// []
+		// [9]
 	}
 	
 	public void exampleWithSignal() {
@@ -57,11 +57,11 @@ public class BufferTest {
 		    .buffer(Observable.interval(250, TimeUnit.MILLISECONDS))
 		    .subscribe(System.out::println);
 		
-//		[0, 1]
-//		[2, 3]
-//		[4, 5, 6]
-//		[7, 8]
-//		[9]
+		// [0, 1]
+		// [2, 3]
+		// [4, 5, 6]
+		// [7, 8]
+		// [9]
 	}
 	
 	public void exampleOverlappingByCount() {
@@ -69,10 +69,10 @@ public class BufferTest {
 		    .buffer(4, 3)
 		    .subscribe(System.out::println);
 		
-//		[0, 1, 2, 3]
-//		[3, 4, 5, 6]
-//		[6, 7, 8, 9]
-//		[9]
+		// [0, 1, 2, 3]
+		// [3, 4, 5, 6]
+		// [6, 7, 8, 9]
+		// [9]
 	}
 	
 	public void exampleOverlappingByTime() {
@@ -80,12 +80,12 @@ public class BufferTest {
 		    .buffer(350, 200, TimeUnit.MILLISECONDS)
 		    .subscribe(System.out::println);
 		
-//		[0, 1, 2]
-//		[2, 3, 4]
-//		[3, 4, 5, 6]
-//		[5, 6, 7, 8]
-//		[7, 8, 9]
-//		[9]
+		// [0, 1, 2]
+		// [2, 3, 4]
+		// [3, 4, 5, 6]
+		// [5, 6, 7, 8]
+		// [7, 8, 9]
+		// [9]
 	}
 	
 	public void exampleOverlappingBySignal() {
@@ -95,10 +95,10 @@ public class BufferTest {
 		        i -> Observable.timer(200, TimeUnit.MILLISECONDS))
 		    .subscribe(System.out::println);
 		
-//		[2, 3]
-//		[4, 5]
-//		[7, 8]
-//		[9]
+		// [2, 3]
+		// [4, 5]
+		// [7, 8]
+		// [9]
 	}
 	
 	

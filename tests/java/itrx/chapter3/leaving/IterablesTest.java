@@ -28,11 +28,11 @@ public class IterablesTest {
 		    System.out.println(l);
 		}
 		
-//		0
-//		1
-//		2
-//		3
-//		4
+		// 0
+		// 1
+		// 2
+		// 3
+		// 4
 	}
 	
 	public void exampleNext() throws InterruptedException {
@@ -47,14 +47,14 @@ public class IterablesTest {
 		    Thread.sleep(750);
 		}
 		
-//		Emitted: 0
-//		0
-//		Emitted: 1
-//		Emitted: 2
-//		2
-//		Emitted: 3
-//		Emitted: 4
-//		4
+		// Emitted: 0
+		// 0
+		// Emitted: 1
+		// Emitted: 2
+		// 2
+		// Emitted: 3
+		// Emitted: 4
+		// 4
 	}
 	
 	public void exampleLatest() throws InterruptedException {
@@ -69,14 +69,14 @@ public class IterablesTest {
 		    Thread.sleep(750);
 		}
 		
-//		Emitted: 0
-//		0
-//		Emitted: 1
-//		1
-//		Emitted: 2
-//		Emitted: 3
-//		3
-//		Emitted: 4
+		// Emitted: 0
+		// 0
+		// Emitted: 1
+		// 1
+		// Emitted: 2
+		// Emitted: 3
+		// 3
+		// Emitted: 4
 	}
 	
 	public void exampleMostRecent() throws InterruptedException {
@@ -91,18 +91,18 @@ public class IterablesTest {
 		    Thread.sleep(400);
 		}
 		
-//		-1
-//		-1
-//		Emitted: 0
-//		0
-//		Emitted: 1
-//		1
-//		Emitted: 2
-//		2
-//		Emitted: 3
-//		3
-//		3
-//		Emitted: 4
+		// -1
+		// -1
+		// Emitted: 0
+		// 0
+		// Emitted: 1
+		// 1
+		// Emitted: 2
+		// 2
+		// Emitted: 3
+		// 3
+		// 3
+		// Emitted: 4
 	}
 	
 	

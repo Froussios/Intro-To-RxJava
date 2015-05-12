@@ -23,11 +23,11 @@ public class RetryTest {
 		    .retry(1)
 		    .subscribe(v -> System.out.println(v));
 		
-//		0
-//		13
-//		9
-//		15
-//		java.lang.Exception
+		// 0
+		// 13
+		// 9
+		// 15
+		// java.lang.Exception
 	}
 	
 	

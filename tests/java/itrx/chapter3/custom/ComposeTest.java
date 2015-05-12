@@ -52,11 +52,11 @@ public class ComposeTest {
 			.compose(new RunningAverage())
 			.subscribe(System.out::println);
 		
-//		2.0
-//		2.5
-//		5.0
-//		6.75
-//		6.2
+		// 2.0
+		// 2.5
+		// 5.0
+		// 6.75
+		// 6.2
 	}
 	
 	public void exampleComposeParameterised() {
@@ -64,9 +64,9 @@ public class ComposeTest {
 			.compose(new RunningAverage(5))
 			.subscribe(System.out::println);
 		
-//		2.0
-//		2.5
-//		3.0
+		// 2.0
+		// 2.5
+		// 3.0
 	}
 	
 	

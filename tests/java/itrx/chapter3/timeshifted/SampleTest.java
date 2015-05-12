@@ -18,9 +18,9 @@ public class SampleTest {
 		    .take(3)
 		    .subscribe(System.out::println);
 		
-//		5
-//		12
-//		18
+		// 5
+		// 12
+		// 18
 	}
 	
 	

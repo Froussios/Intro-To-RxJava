@@ -34,23 +34,23 @@ public class MulticastTest {
 		Thread.sleep(500);
 		s1 = cold.subscribe(i -> System.out.println("First: " + i));
 		
-//		First: 0
-//		First: 1
-//		First: 2
-//		Second: 2
-//		First: 3
-//		Second: 3
-//		Unsubscribe first
-//		First: 4
-//		First: 5
-//		First: 6
-//		Unsubscribe first
-//		First connection again
-//		First: 0
-//		First: 1
-//		First: 2
-//		First: 3
-//		First: 4
+		// First: 0
+		// First: 1
+		// First: 2
+		// Second: 2
+		// First: 3
+		// Second: 3
+		// Unsubscribe first
+		// First: 4
+		// First: 5
+		// First: 6
+		// Unsubscribe first
+		// First connection again
+		// First: 0
+		// First: 1
+		// First: 2
+		// First: 3
+		// First: 4
 	}
 	
 	

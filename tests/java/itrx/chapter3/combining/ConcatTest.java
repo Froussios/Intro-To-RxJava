@@ -16,12 +16,12 @@ public class ConcatTest {
 		Observable.concat(seq1, seq2)
 		    .subscribe(System.out::println);
 		
-//		0
-//		1
-//		2
-//		10
-//		11
-//		12
+		// 0
+		// 1
+		// 2
+		// 10
+		// 11
+		// 12
 	}
 	
 	public void exampleConcatDynamic() {
@@ -37,12 +37,12 @@ public class ConcatTest {
 		Observable.concat(words.groupBy(v -> v.charAt(0)))
 		    .subscribe(System.out::println);
 		
-//		First
-//		Fourth
-//		Fifth
-//		Second
-//		Sixth
-//		Third
+		// First
+		// Fourth
+		// Fifth
+		// Second
+		// Sixth
+		// Third
 	}
 	
 	

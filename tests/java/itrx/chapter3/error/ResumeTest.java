@@ -31,6 +31,10 @@ public class ResumeTest {
 	        System.out.println(name + ": " + v);
 	    }
 	}
+	
+	public static void main(String[] args) {
+		new ResumeTest().exampleOnExceptionResumeNextNoException();
+	}
 
 	public void exampleOnErrorReturn() {
 		Observable<String> values = Observable.create(o -> {
@@ -43,9 +47,9 @@ public class ResumeTest {
 		    .onErrorReturn(e -> "Error: " + e.getMessage())
 		    .subscribe(v -> System.out.println(v));
 		
-//		Rx
-//		is
-//		Error: adjective unknown
+		// Rx
+		// is
+		// Error: adjective unknown
 	}
 	
 	public void exampleOnErrorResumeNext() {
@@ -59,10 +63,10 @@ public class ResumeTest {
 		    .onErrorResumeNext(Observable.just(Integer.MAX_VALUE))
 		    .subscribe(new PrintSubscriber("with onError: "));
 		
-//		with onError: 1
-//		with onError: 2
-//		with onError: 2147483647
-//		with onError: Completed
+		// with onError: 1
+		// with onError: 2
+		// with onError: 2147483647
+		// with onError: Completed
 	}
 	
 	public void exampleOnErrorResumeNextRethrow() {
@@ -75,6 +79,10 @@ public class ResumeTest {
 		values
 			.onErrorResumeNext(e -> Observable.error(new UnsupportedOperationException(e)))
 		    .subscribe(new PrintSubscriber("with onError: "));
+		
+		// with onError: : 1
+		// with onError: : 2
+		// with onError: : Error: java.lang.UnsupportedOperationException: java.lang.Exception: Oops
 	}
 	
 	public void exampleOnExceptionResumeNext() {
@@ -87,6 +95,10 @@ public class ResumeTest {
 		values
 		    .onExceptionResumeNext(Observable.just("hard"))
 		    .subscribe(v -> System.out.println(v));
+		
+		// Rx
+		// is
+		// hard
 	}
 	
 	@SuppressWarnings("serial")
@@ -100,6 +112,10 @@ public class ResumeTest {
 		values
 		    .onExceptionResumeNext(Observable.just("hard"))
 		    .subscribe(v -> System.out.println(v));
+		
+		// Rx
+		// is
+		// uncaught exception
 	}
 	
 	

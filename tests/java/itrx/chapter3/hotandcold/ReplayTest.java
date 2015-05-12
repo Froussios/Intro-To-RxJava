@@ -25,16 +25,16 @@ public class ReplayTest {
 		cold.subscribe(i -> System.out.println("Second: " + i));
 		Thread.sleep(500);
 		
-//		Subscribe first
-//		First: 0
-//		First: 1
-//		First: 2
-//		Subscribe second
-//		Second: 0
-//		Second: 1
-//		Second: 2
-//		First: 3
-//		Second: 3
+		// Subscribe first
+		// First: 0
+		// First: 1
+		// First: 2
+		// Subscribe second
+		// Second: 0
+		// Second: 1
+		// Second: 2
+		// First: 3
+		// Second: 3
 	}
 	
 	public void exampleReplayWithBufferSize() throws InterruptedException {
@@ -46,9 +46,9 @@ public class ReplayTest {
 		Thread.sleep(4500);
 		source.subscribe(System.out::println);
 		
-//		2
-//		3
-//		4
+		// 2
+		// 3
+		// 4
 	}
 	
 	public void exampleReplayWithTime() throws InterruptedException {
@@ -60,9 +60,9 @@ public class ReplayTest {
 		Thread.sleep(4500);
 		source.subscribe(System.out::println);
 		
-//		2
-//		3
-//		4
+		// 2
+		// 3
+		// 4
 	}
 	
 	

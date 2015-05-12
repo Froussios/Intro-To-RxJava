@@ -27,11 +27,11 @@ public class TimeoutTest {
 		        System.out::println,
 		        System.out::println);
 		
-//		0
-//		1
-//		2
-//		3
-//		java.util.concurrent.TimeoutException
+		// 0
+		// 1
+		// 2
+		// 3
+		// java.util.concurrent.TimeoutException
 	}
 	
 	public void exampleTimeoutWithResume() {
@@ -46,11 +46,11 @@ public class TimeoutTest {
 		        System.out::println,
 		        System.out::println);
 		
-//		0
-//		1
-//		2
-//		3
-//		-1
+		// 0
+		// 1
+		// 2
+		// 3
+		// -1
 	}
 	
 	public void exampleTimeoutPerItem() {
@@ -65,11 +65,11 @@ public class TimeoutTest {
 		        System.out::println,
 		        System.out::println);
 		
-//		0
-//		1
-//		2
-//		3
-//		java.util.concurrent.TimeoutException
+		// 0
+		// 1
+		// 2
+		// 3
+		// java.util.concurrent.TimeoutException
 	}
 	
 	public void exampleTimeoutPerItemWithResume() {
@@ -84,11 +84,11 @@ public class TimeoutTest {
 		        System.out::println,
 		        System.out::println);
 		
-//		0
-//		1
-//		2
-//		3
-//		-1
+		// 0
+		// 1
+		// 2
+		// 3
+		// -1
 	}
 	
 	

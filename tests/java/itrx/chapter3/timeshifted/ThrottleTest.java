@@ -18,9 +18,9 @@ public class ThrottleTest {
 		    .take(3)
 		    .subscribe(System.out::println);
 		
-//		0
-//		7
-//		14
+		// 0
+		// 7
+		// 14
 	}
 	
 	public void exampleThrottleLast() {
@@ -29,9 +29,9 @@ public class ThrottleTest {
 		    .take(3)
 		    .subscribe(System.out::println);
 		
-//		5
-//		12
-//		18
+		// 5
+		// 12
+		// 18
 	}
 	
 	

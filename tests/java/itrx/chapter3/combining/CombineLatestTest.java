@@ -23,19 +23,19 @@ public class CombineLatestTest {
 		    .take(6)
 		    .subscribe(System.out::println);
 		
-//		Left emits
-//		Right emits
-//		0 - 0
-//		Left emits
-//		1 - 0
-//		Left emits
-//		2 - 0
-//		Right emits
-//		2 - 1
-//		Left emits
-//		3 - 1
-//		Right emits
-//		3 - 2
+		// Left emits
+		// Right emits
+		// 0 - 0
+		// Left emits
+		// 1 - 0
+		// Left emits
+		// 2 - 0
+		// Right emits
+		// 2 - 1
+		// Left emits
+		// 3 - 1
+		// Right emits
+		// 3 - 2
 	}
 	
 	

@@ -22,10 +22,10 @@ public class DebounceTest {
 		    .debounce(150, TimeUnit.MILLISECONDS)
 		    .subscribe(System.out::println);
 		
-//		3
-//		4
-//		5
-//		9
+		// 3
+		// 4
+		// 5
+		// 9
 	}
 	
 	public void exampleDebounceDynamic() {
@@ -38,11 +38,11 @@ public class DebounceTest {
 		    .debounce(i -> Observable.timer(i * 50, TimeUnit.MILLISECONDS))
 		    .subscribe(System.out::println);
 		
-//		1
-//		3
-//		4
-//		5
-//		9
+		// 1
+		// 3
+		// 4
+		// 5
+		// 9
 	}
 	
 	

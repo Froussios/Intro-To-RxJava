@@ -25,12 +25,12 @@ public class ForEachTest {
 		        v -> System.out.println(v));
 		System.out.println("Subscribed");
 		
-//		Subscribed
-//		0
-//		1
-//		2
-//		3
-//		4
+		// Subscribed
+		// 0
+		// 1
+		// 2
+		// 3
+		// 4
 	}
 	
 	public void exampleBlockingForEach() {
@@ -43,12 +43,12 @@ public class ForEachTest {
 		        v -> System.out.println(v));
 		System.out.println("Subscribed");
 		
-//		0
-//		1
-//		2
-//		3
-//		4
-//		Subscribed
+		// 0
+		// 1
+		// 2
+		// 3
+		// 4
+		// Subscribed
 	}
 	
 	public void exampleBlockingForEachError() {
@@ -66,8 +66,8 @@ public class ForEachTest {
 		}
 		System.out.println("Subscribed");
 		
-//		Caught: java.lang.Exception: Oops
-//		Subscribed
+		// Caught: java.lang.Exception: Oops
+		// Subscribed
 	}
 	
 	

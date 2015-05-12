@@ -25,18 +25,22 @@ public class SwitchOnNext {
 		    .take(10)
 		    .subscribe(System.out::println);
 		
-//		0
-//		0
-//		0
-//		1
-//		1
-//		1
-//		2
-//		2
-//		2
-//		3
+		// 0
+		// 0
+		// 0
+		// 1
+		// 1
+		// 1
+		// 2
+		// 2
+		// 2
+		// 3
 	}
-
+	
+	
+	//
+	// Test
+	//
 	
 	@Test
 	public void test() {

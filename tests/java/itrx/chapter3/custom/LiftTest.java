@@ -53,11 +53,11 @@ public class LiftTest {
 		    .lift(MyMap.create(i -> i + "!"))
 		    .subscribe(System.out::println);
 		
-//		0!
-//		1!
-//		2!
-//		3!
-//		4!
+		// 0!
+		// 1!
+		// 2!
+		// 3!
+		// 4!
 	}
 	
 	

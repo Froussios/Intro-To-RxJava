@@ -19,11 +19,11 @@ public class DelayTest {
 		    .take(5)
 		    .subscribe(System.out::println);
 		
-//		TimeInterval [intervalInMilliseconds=152, value=0]
-//		TimeInterval [intervalInMilliseconds=173, value=1]
-//		TimeInterval [intervalInMilliseconds=199, value=2]
-//		TimeInterval [intervalInMilliseconds=201, value=3]
-//		TimeInterval [intervalInMilliseconds=199, value=4]
+		// TimeInterval [intervalInMilliseconds=152, value=0]
+		// TimeInterval [intervalInMilliseconds=173, value=1]
+		// TimeInterval [intervalInMilliseconds=199, value=2]
+		// TimeInterval [intervalInMilliseconds=201, value=3]
+		// TimeInterval [intervalInMilliseconds=199, value=4]
 	}
 	
 	public void exampleDelaySubscription() {
@@ -33,11 +33,11 @@ public class DelayTest {
 		    .take(5)
 		    .subscribe(System.out::println);
 		
-//		TimeInterval [intervalInMilliseconds=1114, value=0]
-//		TimeInterval [intervalInMilliseconds=92, value=1]
-//		TimeInterval [intervalInMilliseconds=101, value=2]
-//		TimeInterval [intervalInMilliseconds=100, value=3]
-//		TimeInterval [intervalInMilliseconds=99, value=4]
+		// TimeInterval [intervalInMilliseconds=1114, value=0]
+		// TimeInterval [intervalInMilliseconds=92, value=1]
+		// TimeInterval [intervalInMilliseconds=101, value=2]
+		// TimeInterval [intervalInMilliseconds=100, value=3]
+		// TimeInterval [intervalInMilliseconds=99, value=4]
 	}
 	
 	public void exampleDelaySubscriptionWithSignal() {
@@ -47,11 +47,11 @@ public class DelayTest {
 		    .take(5)
 		    .subscribe(System.out::println);
 		
-//		TimeInterval [intervalInMilliseconds=1114, value=0]
-//		TimeInterval [intervalInMilliseconds=92, value=1]
-//		TimeInterval [intervalInMilliseconds=101, value=2]
-//		TimeInterval [intervalInMilliseconds=100, value=3]
-//		TimeInterval [intervalInMilliseconds=99, value=4]
+		// TimeInterval [intervalInMilliseconds=1114, value=0]
+		// TimeInterval [intervalInMilliseconds=92, value=1]
+		// TimeInterval [intervalInMilliseconds=101, value=2]
+		// TimeInterval [intervalInMilliseconds=100, value=3]
+		// TimeInterval [intervalInMilliseconds=99, value=4]
 	}
 	
 	

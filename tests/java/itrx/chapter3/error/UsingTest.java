@@ -32,18 +32,18 @@ public class UsingTest {
 		        v -> System.out.println(v),
 		        e -> System.out.println(e));
 		
-//		Leased: MyResource
-//		M
-//		y
-//		R
-//		e
-//		s
-//		o
-//		u
-//		r
-//		c
-//		e
-//		Disposed: MyResource
+		// Leased: MyResource
+		// M
+		// y
+		// R
+		// e
+		// s
+		// o
+		// u
+		// r
+		// c
+		// e
+		// Disposed: MyResource
 	}
 	
 	

@@ -27,9 +27,14 @@ public class MutablePipelineTest {
 		data.subscribe(d -> d.name = "Garbage");
 		data.subscribe(d -> System.out.println(d.id + ": " + d.name));
 		
-//		1: Garbage
-//		2: Garbage
+		// 1: Garbage
+		// 2: Garbage
 	}
+	
+	
+	//
+	// Test
+	//
 	
 	@Test
 	public void test() {

@@ -42,12 +42,12 @@ public class DoOnTest {
 		    .map(s -> s.toUpperCase())
 		    .subscribe(new PrintSubscriber("Process"));
 		
-//		Log: side
-//		Process: SIDE
-//		Log: effects
-//		Process: EFFECTS
-//		Log: Completed
-//		Process: Completed
+		// Log: side
+		// Process: SIDE
+		// Log: effects
+		// Process: EFFECTS
+		// Log: Completed
+		// Process: Completed
 	}
 	
 	public void exampleDoOnEachEncapsulation() {
@@ -61,12 +61,12 @@ public class DoOnTest {
 		    .filter(s -> s.length() > 5)
 		    .subscribe(new PrintSubscriber("Process"));
 		
-//		Log: First
-//		Log: Second
-//		Process: SECOND
-//		Log: Third
-//		Log: Completed
-//		Process: Completed
+		// Log: First
+		// Log: Second
+		// Process: SECOND
+		// Log: Third
+		// Log: Completed
+		// Process: Completed
 	}
 	
 	public void exampleOnSubscriber() {
@@ -84,17 +84,17 @@ public class DoOnTest {
 		subject.onNext(3);
 		subject.onCompleted();
 		
-//		New subscription
-//		1st: 0
-//		New subscription
-//		2st: 0
-//		1st: 1
-//		2st: 1
-//		Subscription over
-//		2st: 2
-//		2st: 3
-//		2st: Completed
-//		Subscription over
+		// New subscription
+		// 1st: 0
+		// New subscription
+		// 2st: 0
+		// 1st: 1
+		// 2st: 1
+		// Subscription over
+		// 2st: 2
+		// 2st: 3
+		// 2st: Completed
+		// Subscription over
 	}
 	
 	

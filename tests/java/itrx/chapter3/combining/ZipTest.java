@@ -23,28 +23,33 @@ public class ZipTest {
 		    .take(6)
 		    .subscribe(System.out::println);
 		
-//		Left emits
-//		Right emits
-//		0 - 0
-//		Left emits
-//		Right emits
-//		Left emits
-//		1 - 1
-//		Left emits
-//		Right emits
-//		2 - 2
-//		Left emits
-//		Left emits
-//		Right emits
-//		3 - 3
-//		Left emits
-//		Right emits
-//		4 - 4
-//		Left emits
-//		Right emits
-//		Left emits
-//		5 - 5
+		// Left emits
+		// Right emits
+		// 0 - 0
+		// Left emits
+		// Right emits
+		// Left emits
+		// 1 - 1
+		// Left emits
+		// Right emits
+		// 2 - 2
+		// Left emits
+		// Left emits
+		// Right emits
+		// 3 - 3
+		// Left emits
+		// Right emits
+		// 4 - 4
+		// Left emits
+		// Right emits
+		// Left emits
+		// 5 - 5
 	}
+	
+	
+	//
+	// Test
+	//
 	
 	@Test
 	public void test() {
