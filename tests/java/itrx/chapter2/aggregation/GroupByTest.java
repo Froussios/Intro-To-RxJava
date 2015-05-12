@@ -25,9 +25,9 @@ public class GroupByTest {
 		    )
 		    .subscribe(v -> System.out.println(v));
 		
-//		s: sixth
-//		t: third
-//		f: fifth
+		// s: sixth
+		// t: third
+		// f: fifth
 	}
 	
 	

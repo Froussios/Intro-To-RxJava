@@ -23,8 +23,8 @@ public class DefaultIfEmptyTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		2
-//		Completed
+		// 2
+		// Completed
 	}
 	
 	public void exampleDefaultIfEmptyError() {
@@ -38,8 +38,13 @@ public class DefaultIfEmptyTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		Error: java.lang.Exception
+		// Error: java.lang.Exception
 	}
+	
+	
+	//
+	// Tests
+	//
 	
 	@Test
 	public void testDefaultIfEmpty() {

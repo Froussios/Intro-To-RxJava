@@ -26,9 +26,14 @@ public class ContainsTest {
 		
 		subscription.unsubscribe();
 		
-//		true
-//		Completed
+		// true
+		// Completed
 	}
+	
+	
+	//
+	// Test
+	//
 	
 	@Test
 	public void test() {

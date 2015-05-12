@@ -19,6 +19,8 @@ public class CollectTest {
 				() -> new ArrayList<Integer>(),
 				(acc, value) -> acc.add(value))
 			.subscribe(v -> System.out.println(v));
+		
+		// [10, 11, 12, 13, 14]
 	}
 	
 	@Test

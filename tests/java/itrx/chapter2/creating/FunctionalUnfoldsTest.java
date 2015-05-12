@@ -2,6 +2,7 @@ package itrx.chapter2.creating;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -14,6 +15,64 @@ import rx.schedulers.Schedulers;
 import rx.schedulers.TestScheduler;
 
 public class FunctionalUnfoldsTest {
+	
+	public void exampleRange() {
+		Observable<Integer> values = Observable.range(10, 15);
+		values.subscribe(System.out::println);
+		
+		// 10
+		// ...
+		// 24
+	}
+	
+	public void exampleInterval() throws IOException {
+		Observable<Long> values = Observable.interval(1000, TimeUnit.MILLISECONDS);
+		values.subscribe(
+		    v -> System.out.println("Received: " + v),
+		    e -> System.out.println("Error: " + e),
+		    () -> System.out.println("Completed")
+		);
+		System.in.read();
+		
+		// Received: 0
+		// Received: 1
+		// Received: 2
+		// Received: 3
+		// ...
+	}
+	
+	public void exampleTimer() throws IOException {
+		Observable<Long> values = Observable.timer(1, TimeUnit.SECONDS);
+		values.subscribe(
+		    v -> System.out.println("Received: " + v),
+		    e -> System.out.println("Error: " + e),
+		    () -> System.out.println("Completed")
+		);
+		System.in.read();
+		
+		// Received: 0
+		// Completed
+	}
+	
+	public void exampleTimerWithRepeat() throws IOException {
+		Observable<Long> values = Observable.timer(2, 1, TimeUnit.SECONDS);
+		values.subscribe(
+		    v -> System.out.println("Received: " + v),
+		    e -> System.out.println("Error: " + e),
+		    () -> System.out.println("Completed")
+		);
+		System.in.read();
+		
+		// Received: 0
+		// Received: 1
+		// Received: 2
+		// ...
+	}
+	
+	
+	//
+	// Tests
+	//
 
 	@Test
 	public void testRange() {
@@ -27,6 +86,7 @@ public class FunctionalUnfoldsTest {
 		tester.assertNoErrors();
 	}
 	
+	@Test
 	public void testInterval() {
 		TestSubscriber<Long> tester = new TestSubscriber<Long>();
 		TestScheduler scheduler = Schedulers.test();
@@ -42,6 +102,7 @@ public class FunctionalUnfoldsTest {
 		subscription.unsubscribe();
 	}
 	
+	@Test
 	public void testTimer() {
 		TestSubscriber<Long> tester = new TestSubscriber<Long>();
 		TestScheduler scheduler = Schedulers.test();
@@ -57,6 +118,7 @@ public class FunctionalUnfoldsTest {
 		subscription.unsubscribe();
 	}
 	
+	@Test
 	public void testTimerWithRepeat() {
 		TestSubscriber<Long> tester = new TestSubscriber<Long>();
 		TestScheduler scheduler = Schedulers.test();

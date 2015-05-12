@@ -39,12 +39,12 @@ public class ScanTest {
 		    .scan((i1,i2) -> i1+i2)
 		    .subscribe(new PrintSubscriber("Sum"));
 		
-//		Sum: 0
-//		Sum: 1
-//		Sum: 3
-//		Sum: 6
-//		Sum: 10
-//		Sum: Completed
+		// Sum: 0
+		// Sum: 1
+		// Sum: 3
+		// Sum: 6
+		// Sum: 10
+		// Sum: Completed
 	}
 	
 	public void exampleRunningMin() {
@@ -63,15 +63,20 @@ public class ScanTest {
 		values.onNext(4);
 		values.onCompleted();
 		
-//		Values: 2
-//		Min: 2
-//		Values: 3
-//		Values: 1
-//		Min: 1
-//		Values: 4
-//		Values: Completed
-//		Min: Completed
+		// Values: 2
+		// Min: 2
+		// Values: 3
+		// Values: 1
+		// Min: 1
+		// Values: 4
+		// Values: Completed
+		// Min: Completed
 	}
+	
+	
+	//
+	// Tests
+	//
 	
 	@Test
 	public void testRunningSum() {

@@ -41,9 +41,9 @@ public class TimestampTimeIntevalTest {
 		    .flatMap(i -> Observable.range(0,i))
 		    .subscribe(new PrintSubscriber("flatMap"));
 		
-//		flatMap: 0
-//		flatMap: 1
-//		flatMap: Completed
+		// flatMap: 0
+		// flatMap: 1
+		// flatMap: Completed
 	}
 	
 	public void exampleFlatMapMultipleValues() {
@@ -53,13 +53,13 @@ public class TimestampTimeIntevalTest {
 		    .flatMap(i -> Observable.range(0,i))
 		    .subscribe(new PrintSubscriber("flatMap"));
 		
-//		flatMap: 0
-//		flatMap: 0
-//		flatMap: 1
-//		flatMap: 0
-//		flatMap: 1
-//		flatMap: 2
-//		flatMap: Completed
+		// flatMap: 0
+		// flatMap: 0
+		// flatMap: 1
+		// flatMap: 0
+		// flatMap: 1
+		// flatMap: 2
+		// flatMap: Completed
 	}
 	
 	public void exampleFlatMapNewType() {
@@ -72,8 +72,8 @@ public class TimestampTimeIntevalTest {
 		    ))
 		    .subscribe(new PrintSubscriber("flatMap"));
 		
-//		flatMap: A
-//		flatMap: Completed
+		// flatMap: A
+		// flatMap: Completed
 	}
 	
 	public void exampleFlatMapFilter() {
@@ -88,14 +88,14 @@ public class TimestampTimeIntevalTest {
 		    })
 		    .subscribe(new PrintSubscriber("flatMap"));
 		
-//		flatMap: A
-//		flatMap: B
-//		flatMap: C
-//		...
-//		flatMap: X
-//		flatMap: Y
-//		flatMap: Z
-//		flatMap: Completed
+		// flatMap: A
+		// flatMap: B
+		// flatMap: C
+		// ...
+		// flatMap: X
+		// flatMap: Y
+		// flatMap: Z
+		// flatMap: Completed
 	}
 	
 	public void exampleFlatMapAsynchronous() {
@@ -107,17 +107,17 @@ public class TimestampTimeIntevalTest {
 	    .take(10)
 	    .subscribe(new PrintSubscriber("flatMap"));
 		
-//		flatMap: 100
-//		flatMap: 150
-//		flatMap: 100
-//		flatMap: 100
-//		flatMap: 150
-//		flatMap: 100
-//		flatMap: 150
-//		flatMap: 100
-//		flatMap: 100
-//		flatMap: 150
-//		flatMap: Completed
+		// flatMap: 100
+		// flatMap: 150
+		// flatMap: 100
+		// flatMap: 100
+		// flatMap: 150
+		// flatMap: 100
+		// flatMap: 150
+		// flatMap: 100
+		// flatMap: 100
+		// flatMap: 150
+		// flatMap: Completed
 	}
 	
 	

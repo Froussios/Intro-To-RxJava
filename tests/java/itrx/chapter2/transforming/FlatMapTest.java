@@ -42,10 +42,10 @@ public class FlatMapTest {
 		    .timestamp()
 		    .subscribe(new PrintSubscriber("Timestamp"));
 		
-//		Timestamp: Timestamped(timestampMillis = 1428611094943, value = 0)
-//		Timestamp: Timestamped(timestampMillis = 1428611095037, value = 1)
-//		Timestamp: Timestamped(timestampMillis = 1428611095136, value = 2)
-//		Timestamp: Completed
+		// Timestamp: Timestamped(timestampMillis = 1428611094943, value = 0)
+		// Timestamp: Timestamped(timestampMillis = 1428611095037, value = 1)
+		// Timestamp: Timestamped(timestampMillis = 1428611095136, value = 2)
+		// Timestamp: Completed
 	}
 	
 	public void exampleTimeInteval() {
@@ -55,10 +55,10 @@ public class FlatMapTest {
 		    .timeInterval()
 		    .subscribe(new PrintSubscriber("TimeInterval"));
 		
-//		TimeInterval: TimeInterval [intervalInMilliseconds=131, value=0]
-//		TimeInterval: TimeInterval [intervalInMilliseconds=75, value=1]
-//		TimeInterval: TimeInterval [intervalInMilliseconds=100, value=2]
-//		TimeInterval: Completed
+		// TimeInterval: TimeInterval [intervalInMilliseconds=131, value=0]
+		// TimeInterval: TimeInterval [intervalInMilliseconds=75, value=1]
+		// TimeInterval: TimeInterval [intervalInMilliseconds=100, value=2]
+		// TimeInterval: Completed
 	}
 	
 	

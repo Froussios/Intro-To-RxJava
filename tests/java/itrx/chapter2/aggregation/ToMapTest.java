@@ -66,8 +66,8 @@ public class ToMapTest {
 		    .toMap(person -> person.name)
 		    .subscribe(new PrintSubscriber("toMap"));
 			
-//		toMap: {Saul=Person@7cd84586, Nick=Person@30dae81, Will=Person@1b2c6ec2}
-//		toMap: Completed
+		// toMap: {Saul=Person@7cd84586, Nick=Person@30dae81, Will=Person@1b2c6ec2}
+		// toMap: Completed
 	}
 	
 	public void exampleToMapWithSelector() {
@@ -83,8 +83,8 @@ public class ToMapTest {
 		        person -> person.age)
 		    .subscribe(new PrintSubscriber("toMap"));
 		
-//		toMap: {Saul=35, Nick=40, Will=25}
-//		toMap: Completed
+		// toMap: {Saul=35, Nick=40, Will=25}
+		// toMap: Completed
 	}
 	
 	public void exampleToMapWithCustomContainer() {
@@ -101,8 +101,8 @@ public class ToMapTest {
 		        () -> new HashMap<String, Integer>())
 		    .subscribe(new PrintSubscriber("toMap"));
 		
-//		toMap: {Saul=35, Nick=40, Will=25}
-//		toMap: Completed
+		// toMap: {Saul=35, Nick=40, Will=25}
+		// toMap: Completed
 	}
 	
 	public void exampleToMultimap() {
@@ -118,8 +118,8 @@ public class ToMapTest {
 		        person -> person.name)
 		    .subscribe(new PrintSubscriber("toMap"));
 		
-//		toMap: {35=[Will, Saul], 40=[Nick]}
-//		toMap: Completed
+		// toMap: {35=[Will, Saul], 40=[Nick]}
+		// toMap: Completed
 	}
 	
 	public void exampleToMultimapWithCustomContainers() {
@@ -137,8 +137,8 @@ public class ToMapTest {
 		        (key) -> new ArrayList<>())
 		    .subscribe(new PrintSubscriber("toMap"));
 		
-//		toMap: {35=[Will, Saul], 40=[Nick]}
-//		toMap: Completed
+		// toMap: {35=[Will, Saul], 40=[Nick]}
+		// toMap: Completed
 	}
 	
 	

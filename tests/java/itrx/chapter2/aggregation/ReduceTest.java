@@ -40,10 +40,10 @@ public class ReduceTest {
 		    .reduce((i1,i2) -> (i1>i2) ? i2 : i1)
 		    .subscribe(new PrintSubscriber("Min"));
 		
-//		Sum: 10
-//		Sum: Completed
-//		Min: 0
-//		Min: Completed
+		// Sum: 10
+		// Sum: Completed
+		// Min: 0
+		// Min: Completed
 	}
 	
 	public void exampleWithAccumulator() {
@@ -52,10 +52,15 @@ public class ReduceTest {
 		values
 		    .reduce(0, (acc,next) -> acc + 1)
 		    .subscribe(new PrintSubscriber("Count"));
-		
-//		Count: 3
-//		Count: Completed
+
+		// Count: 3
+		// Count: Completed
 	}
+	
+	
+	//
+	// Tests
+	//
 	
 	@Test
 	public void test() {

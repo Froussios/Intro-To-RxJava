@@ -22,8 +22,8 @@ public class SequenceEqualTests {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		true
-//		Completed
+		// true
+		// Completed
 	}
 	
 	public void exampleSequenceEqualFalse() {
@@ -37,8 +37,8 @@ public class SequenceEqualTests {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		false
-//		Completed
+		// false
+		// Completed
 	}
 	
 	public void exampleSequenceEqualError() {
@@ -55,8 +55,13 @@ public class SequenceEqualTests {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		Error: java.lang.Exception
+		// Error: java.lang.Exception
 	}
+	
+	
+	//
+	// Tests
+	//
 	
 	@Test
 	public void testSequenceEqualTrue() {

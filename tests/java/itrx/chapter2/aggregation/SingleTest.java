@@ -45,8 +45,8 @@ public class SingleTest {
 		    .single(v -> v == 5L) // Never emits
 		    .subscribe(new PrintSubscriber("Single2"));
 		
-//		Single1: 5
-//		Single1: Completed
+		// Single1: 5
+		// Single1: Completed
 	}
 	
 	public void exampleSingleOrDefault() {
@@ -56,9 +56,14 @@ public class SingleTest {
 			.singleOrDefault(-1)
 			.subscribe(new PrintSubscriber("SingleOrDefault"));
 		
-//		SingleOrDefault: -1
-//		SingleOrDefault: Completed
+		// SingleOrDefault: -1
+		// SingleOrDefault: Completed
 	}
+	
+	
+	//
+	// Tests
+	//
 	
 	@Test
 	public void testSingle() {

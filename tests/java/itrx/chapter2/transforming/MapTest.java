@@ -36,11 +36,11 @@ public class MapTest {
 		    .map(i -> i + 3)
 		    .subscribe(new PrintSubscriber("Map"));
 		
-//		Map: 3
-//		Map: 4
-//		Map: 5
-//		Map: 6
-//		Map: Completed
+		// Map: 3
+		// Map: 4
+		// Map: 5
+		// Map: 6
+		// Map: Completed
 	}
 	
 	public void exampleMap2() {
@@ -50,11 +50,11 @@ public class MapTest {
 
 		values.subscribe(new PrintSubscriber("Map"));
 		
-//		Map: 0
-//		Map: 1
-//		Map: 2
-//		Map: 3
-//		Map: Completed
+		// Map: 0
+		// Map: 1
+		// Map: 2
+		// Map: 3
+		// Map: Completed
 	}
 	
 	

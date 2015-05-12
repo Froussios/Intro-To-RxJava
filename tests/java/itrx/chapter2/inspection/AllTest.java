@@ -33,8 +33,8 @@ public class AllTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		true
-//		Completed
+		// true
+		// Completed
 	}
 	
 	public void exampleAllEarlyFalse() {
@@ -57,14 +57,14 @@ public class AllTest {
 		subscription.unsubscribe();
 		subscription2.unsubscribe();
 		
-//		0
-//		1
-//		2
-//		All: false
-//		All: Completed
-//		3
-//		4
-//		Completed
+		// 0
+		// 1
+		// 2
+		// All: false
+		// All: Completed
+		// 3
+		// 4
+		// Completed
 	}
 	
 	public void exampleAllError() {
@@ -82,7 +82,7 @@ public class AllTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		Error: java.lang.Exception
+		// Error: java.lang.Exception
 	}
 	
 	public void exampleAllErrorAfterComplete() {
@@ -100,8 +100,8 @@ public class AllTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		false
-//		Completed
+		// false
+		// Completed
 	}
 	
 	

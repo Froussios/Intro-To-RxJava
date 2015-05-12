@@ -39,11 +39,11 @@ public class CastTypeOfTest {
 		    .cast(Integer.class)
 		    .subscribe(new PrintSubscriber("Map"));
 		
-//		Map: 0
-//		Map: 1
-//		Map: 2
-//		Map: 3
-//		Map: Completed
+		// Map: 0
+		// Map: 1
+		// Map: 2
+		// Map: 3
+		// Map: Completed
 	}
 	
 	public void exampleCastFail() {
@@ -53,10 +53,10 @@ public class CastTypeOfTest {
 		    .cast(Integer.class)
 		    .subscribe(new PrintSubscriber("Map"));
 		
-//		Map: 0
-//		Map: 1
-//		Map: 2
-//		Map: Error: java.lang.ClassCastException: Cannot cast java.lang.String to java.lang.Integer
+		// Map: 0
+		// Map: 1
+		// Map: 2
+		// Map: Error: java.lang.ClassCastException: Cannot cast java.lang.String to java.lang.Integer
 	}
 	
 	public void exampleTypeOf() {
@@ -66,10 +66,10 @@ public class CastTypeOfTest {
 		    .ofType(Integer.class)
 		    .subscribe(new PrintSubscriber("Map"));
 		
-//		Map: 0
-//		Map: 1
-//		Map: 3
-//		Map: Completed
+		// Map: 0
+		// Map: 1
+		// Map: 3
+		// Map: Completed
 	}
 	
 	

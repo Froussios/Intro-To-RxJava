@@ -38,11 +38,11 @@ public class MaterializeTest {
 		    .materialize()
 		    .subscribe(new PrintSubscriber("Materialize"));
 		
-//		Materialize: [rx.Notification@a4c802e9 OnNext 0]
-//		Materialize: [rx.Notification@a4c802ea OnNext 1]
-//		Materialize: [rx.Notification@a4c802eb OnNext 2]
-//		Materialize: [rx.Notification@18d48ace OnCompleted]
-//		Materialize: Completed
+		// Materialize: [rx.Notification@a4c802e9 OnNext 0]
+		// Materialize: [rx.Notification@a4c802ea OnNext 1]
+		// Materialize: [rx.Notification@a4c802eb OnNext 2]
+		// Materialize: [rx.Notification@18d48ace OnCompleted]
+		// Materialize: Completed
 	}
 	
 	

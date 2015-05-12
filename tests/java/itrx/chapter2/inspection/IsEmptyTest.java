@@ -26,9 +26,14 @@ public class IsEmptyTest {
 		
 		subscription.unsubscribe();
 		
-//		false
-//		Completed
+		// false
+		// Completed
 	}
+	
+	
+	//
+	// Test
+	//
 	
 	@Test
 	public void testIsEmpty() {

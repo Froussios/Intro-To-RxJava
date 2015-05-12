@@ -20,8 +20,8 @@ public class ElementAtTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		102
-//		Completed
+		// 102
+		// Completed
 	}
 	
 	public void exampleElementAtOrDefault() {
@@ -35,8 +35,8 @@ public class ElementAtTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		0
-//		Completed
+		// 0
+		// Completed
 	}
 	
 	

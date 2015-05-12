@@ -39,12 +39,12 @@ public class CountTest {
 		    .count()
 		    .subscribe(new PrintSubscriber("Count"));
 		
-//		Values: 0
-//		Values: 1
-//		Values: 2
-//		Values: Completed
-//		Count: 3
-//		Count: Completed
+		// Values: 0
+		// Values: 1
+		// Values: 2
+		// Values: Completed
+		// Count: 3
+		// Count: Completed
 	}
 	
 	public void exampleCountLong() {
@@ -56,13 +56,18 @@ public class CountTest {
 		    .countLong()
 		    .subscribe(new PrintSubscriber("Count"));
 		
-//		Values: 0
-//		Values: 1
-//		Values: 2
-//		Values: Completed
-//		Count: 3
-//		Count: Completed
+		// Values: 0
+		// Values: 1
+		// Values: 2
+		// Values: Completed
+		// Count: 3
+		// Count: Completed
 	}
+	
+	
+	//
+	// Tests
+	//
 	
 	@Test
 	public void test() {

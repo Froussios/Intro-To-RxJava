@@ -23,7 +23,7 @@ public class ToCollectionTest {
 		        })
 		    .subscribe(v -> System.out.println(v));
 		
-//		[10, 11, 12, 13, 14]
+		// [10, 11, 12, 13, 14]
 	}
 	
 	public void exampleToList() {
@@ -33,7 +33,7 @@ public class ToCollectionTest {
 		    .toList()
 		    .subscribe(v -> System.out.println(v));
 		
-//		[10, 11, 12, 13, 14]
+		// [10, 11, 12, 13, 14]
 	}
 	
 	public void exampleToSortedList() {
@@ -43,7 +43,7 @@ public class ToCollectionTest {
 		    .toSortedList((i1,i2) -> i2 - i1)
 		    .subscribe(v -> System.out.println(v));
 		
-//		[14, 13, 12, 11, 10]
+		// [14, 13, 12, 11, 10]
 	}
 	
 	

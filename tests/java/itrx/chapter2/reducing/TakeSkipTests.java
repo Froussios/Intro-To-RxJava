@@ -13,7 +13,6 @@ import rx.schedulers.TestScheduler;
 
 public class TakeSkipTests {
 
-	
 	public void exampleTake() {
 		Observable<Integer> values = Observable.range(0, 5);
 		
@@ -25,9 +24,9 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		0
-//		1
-//		Completed
+		// 0
+		// 1
+		// Completed
 	}
 	
 	public void exampleSkip() {
@@ -41,10 +40,10 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		2
-//		3
-//		4
-//		Completed
+		// 2
+		// 3
+		// 4
+		// Completed
 	}
 	
 	public void exampleTakeTime() {
@@ -60,9 +59,9 @@ public class TakeSkipTests {
 		
 		subscription.unsubscribe();
 		
-//		0
-//		1
-//		Completed
+		// 0
+		// 1
+		// Completed
 	}
 	
 	public void exampleSkipTime() {
@@ -78,10 +77,10 @@ public class TakeSkipTests {
 		
 		subscription.unsubscribe();
 		
-//		2
-//		3
-//		4
-//		Completed
+		// 2
+		// 3
+		// 4
+		// Completed
 	}
 	
 	public void exampleTakeWhile() {
@@ -97,9 +96,9 @@ public class TakeSkipTests {
 		
 		subscription.unsubscribe();
 		
-//		0
-//		1
-//		Completed
+		// 0
+		// 1
+		// Completed
 	}
 	
 	public void exampleSkipWhile() {
@@ -115,10 +114,10 @@ public class TakeSkipTests {
 		
 		subscription.unsubscribe();
 		
-//		2
-//		3
-//		4
-//		...
+		// 2
+		// 3
+		// 4
+		// ...
 	}
 	
 	public void exampleSkipLast() {
@@ -132,10 +131,10 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		0
-//		1
-//		2
-//		Completed
+		// 0
+		// 1
+		// 2
+		// Completed
 	}
 	
 	public void exampleTakeLast() {
@@ -149,9 +148,9 @@ public class TakeSkipTests {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		3
-//		4
-//		...
+		// 3
+		// 4
+		// ...
 	}
 	
 	public void exampleTakeUntil() {
@@ -168,9 +167,9 @@ public class TakeSkipTests {
 		
 		subscription.unsubscribe();
 		
-//		0
-//		1
-//		Completed
+		// 0
+		// 1
+		// Completed
 	}
 	
 	public void exampleSkipUntil() {
@@ -187,13 +186,16 @@ public class TakeSkipTests {
 		
 		subscription.unsubscribe();
 		
-//		2
-//		3
-//		4
-//		...
+		// 2
+		// 3
+		// 4
+		// ...
 	}
 	
 	
+	//
+	// Tests
+	//
 	
 	@Test
 	public void testTake() {

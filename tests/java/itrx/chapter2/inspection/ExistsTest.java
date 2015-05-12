@@ -20,8 +20,8 @@ public class ExistsTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		false
-//		Completed
+		// false
+		// Completed
 	}
 	
 	public void exampleTrue() {
@@ -35,9 +35,14 @@ public class ExistsTest {
 		        () -> System.out.println("Completed")
 		    );
 		
-//		true
-//		Completed
+		// true
+		// Completed
 	}
+	
+	
+	//
+	// Tests
+	//
 	
 	@Test
 	public void testFalse() {
