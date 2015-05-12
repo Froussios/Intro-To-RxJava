@@ -9,6 +9,45 @@ import rx.subjects.BehaviorSubject;
 
 public class BehaviorSubjectTest {
 
+	public void exampleLat() {
+		BehaviorSubject<Integer> s = BehaviorSubject.create();
+		s.onNext(0);
+		s.onNext(1);
+		s.onNext(2);
+		s.subscribe(v -> System.out.println("Late: " + v)); 
+		s.onNext(3);
+		
+		// Late: 2
+		// Late: 3
+	}
+	
+	public void exampleCompleted() {
+		BehaviorSubject<Integer> s = BehaviorSubject.create();
+		s.onNext(0);
+		s.onNext(1);
+		s.onNext(2);
+		s.onCompleted();
+		s.subscribe(
+		    v -> System.out.println("Late: " + v),
+		    e -> System.out.println("Error"),
+		    () -> System.out.println("Completed")
+		);
+	}
+	
+	public void exampleInitialvalue() {
+		BehaviorSubject<Integer> s = BehaviorSubject.create(0);
+		s.subscribe(v -> System.out.println(v));
+		s.onNext(1);
+		
+		// 0
+		// 1
+	}
+	
+	
+	//
+	// Tests
+	//
+	
 	@Test
 	public void testLate() {
 		TestSubscriber<Integer> tester = new TestSubscriber<Integer>();
