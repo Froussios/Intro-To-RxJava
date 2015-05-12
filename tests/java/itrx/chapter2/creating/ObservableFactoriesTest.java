@@ -1,13 +1,16 @@
 package itrx.chapter2.creating;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
 import rx.Observable;
 import rx.observers.TestSubscriber;
+import rx.schedulers.Schedulers;
+import rx.schedulers.TestScheduler;
 
 public class ObservableFactoriesTest {
 
@@ -58,6 +61,23 @@ public class ObservableFactoriesTest {
 		tester.assertTerminalEvent();
 		assertEquals(tester.getOnErrorEvents().size(), 1);
 		assertEquals(tester.getOnCompletedEvents().size(), 0);
+	}
+	
+	@Test
+	public void testDefer() {
+		TestScheduler scheduler = Schedulers.test();
+		TestSubscriber<Long> tester1 = new TestSubscriber<>();
+		TestSubscriber<Long> tester2 = new TestSubscriber<>();
+		
+		Observable<Long> now = Observable.defer(() ->
+			Observable.just(scheduler.now()));
+
+		now.subscribe(tester1);
+		scheduler.advanceTimeBy(1000, TimeUnit.MILLISECONDS);
+		now.subscribe(tester2);
+		
+		assertTrue(tester1.getOnNextEvents().get(0) <
+					tester2.getOnNextEvents().get(0));
 	}
 	
 	@Test
