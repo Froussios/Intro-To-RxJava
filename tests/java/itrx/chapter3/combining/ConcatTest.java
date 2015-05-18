@@ -45,6 +45,24 @@ public class ConcatTest {
 		// Third
 	}
 	
+	public void exampleConcatWith() {
+		Observable<Integer> seq1 = Observable.range(0, 3);
+		Observable<Integer> seq2 = Observable.range(10, 3);
+		Observable<Integer> seq3 = Observable.just(20);
+		
+		seq1.concatWith(seq2)
+			.concatWith(seq3)
+			.subscribe(System.out::println);
+		
+		// 0
+		// 1
+		// 2
+		// 10
+		// 11
+		// 12
+		// 20
+	}
+	
 	
 	//
 	// Tests
@@ -91,5 +109,21 @@ public class ConcatTest {
 		tester.assertTerminalEvent();
 		tester.assertNoErrors();
 	}
-
+	
+	@Test
+	public void testConcatWith() {
+		TestSubscriber<Integer> tester = new TestSubscriber<>();
+		
+		Observable<Integer> seq1 = Observable.range(0, 3);
+		Observable<Integer> seq2 = Observable.range(10, 3);
+		Observable<Integer> seq3 = Observable.just(20);
+		
+		seq1.concatWith(seq2)
+			.concatWith(seq3)
+			.subscribe(tester);
+		
+		tester.assertReceivedOnNext(Arrays.asList(0,1,2,10,11,12,20));
+		tester.assertTerminalEvent();
+		tester.assertNoErrors();
+	}
 }
