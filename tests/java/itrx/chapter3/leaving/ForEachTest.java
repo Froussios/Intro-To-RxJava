@@ -122,24 +122,15 @@ public class ForEachTest {
 		assertEquals(received, Arrays.asList(0L, 1L, 2L, 3L, 4L, -1L));
 	}
 	
-	@Test
+	@Test(expected = Exception.class)
 	public void testBlockingForEachError() {
-		boolean caughtException = false;
-		
 		Observable<Long> values = Observable.error(new Exception("Oops"));
 
-		try {
-		    values
-		        .take(5)
-		        .toBlocking()
-		        .forEach(
-		            v -> {});
-		}
-		catch (Exception e) {
-		    caughtException = true;
-		}
-
-		assertTrue(caughtException);
+	    values
+	        .take(5)
+	        .toBlocking()
+	        .forEach(
+	            v -> {});
 	}
 
 }
