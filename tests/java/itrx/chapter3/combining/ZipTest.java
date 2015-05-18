@@ -1,6 +1,5 @@
 package itrx.chapter3.combining;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -12,11 +11,6 @@ import rx.schedulers.Schedulers;
 import rx.schedulers.TestScheduler;
 
 public class ZipTest {
-
-	public static void main(String[] args) throws IOException {
-		new ZipTest().exampleZipWithIterable();
-		System.in.read();
-	}
 	
 	public void example() {
 		Observable.zip(
@@ -50,6 +44,35 @@ public class ZipTest {
 		// Right emits
 		// Left emits
 		// 5 - 5
+	}
+	
+	public void exampleZipMultiple() {
+		Observable.zip(
+				Observable.interval(100, TimeUnit.MILLISECONDS),
+				Observable.interval(150, TimeUnit.MILLISECONDS),
+				Observable.interval(050, TimeUnit.MILLISECONDS),
+				(i1,i2,i3) -> i1 + " - " + i2 + " - " + i3)
+			.take(6)
+			.subscribe(System.out::println);
+		
+		// 0 - 0 - 0
+		// 1 - 1 - 1
+		// 2 - 2 - 2
+		// 3 - 3 - 3
+		// 4 - 4 - 4
+		// 5 - 5 - 5
+	}
+	
+	public void exampleZipUneven() {
+		Observable.zip(
+				Observable.range(0, 5),
+				Observable.range(0, 3),
+				Observable.range(0, 8),
+				(i1,i2,i3) -> i1 + " - " + i2 + " - " + i3)
+			.count()
+			.subscribe(System.out::println);
+		
+		// 3
 	}
 	
 	public void exampleZipWith() {
@@ -107,6 +130,49 @@ public class ZipTest {
 			"3 - 3"
 		));
 		tester.assertNoErrors();
+		
+		tester.unsubscribe();
+	}
+	
+	@Test
+	public void testZipMultiple() {
+		TestSubscriber<String> tester = new TestSubscriber<>();
+		TestScheduler scheduler = Schedulers.test();
+		
+		Observable.zip(
+				Observable.interval(100, TimeUnit.MILLISECONDS, scheduler),
+				Observable.interval(150, TimeUnit.MILLISECONDS, scheduler),
+				Observable.interval(050, TimeUnit.MILLISECONDS, scheduler),
+				(i1,i2,i3) -> i1 + " - " + i2 + " - " + i3)
+			.subscribe(tester);
+		
+		scheduler.advanceTimeBy(600, TimeUnit.MILLISECONDS);
+		tester.assertReceivedOnNext(Arrays.asList(
+			"0 - 0 - 0",
+			"1 - 1 - 1",
+			"2 - 2 - 2",
+			"3 - 3 - 3"
+		));
+		tester.assertNoErrors();
+		
+		tester.unsubscribe();
+	}
+	
+	@Test
+	public void testZipUneven() {
+		TestSubscriber<Integer> tester = new TestSubscriber<>();
+		
+		Observable.zip(
+				Observable.range(0, 5),
+				Observable.range(0, 3),
+				Observable.range(0, 8),
+				(i1,i2,i3) -> i1 + " - " + i2 + " - " + i3)
+			.count()
+			.subscribe(tester);
+		
+		tester.assertReceivedOnNext(Arrays.asList(3));
+		
+		tester.unsubscribe();
 	}
 	
 	@Test
@@ -128,6 +194,8 @@ public class ZipTest {
 			"3 - 3"
 		));
 		tester.assertNoErrors();
+		
+		tester.unsubscribe();
 	}
 	
 	@Test
@@ -149,6 +217,8 @@ public class ZipTest {
 		));
 		tester.assertTerminalEvent();
 		tester.assertNoErrors();
+		
+		tester.unsubscribe();
 	}
 
 }
