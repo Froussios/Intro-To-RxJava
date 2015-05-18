@@ -1,7 +1,8 @@
 package itrx.chapter2.transforming;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
@@ -11,8 +12,6 @@ import rx.Subscriber;
 import rx.observers.TestSubscriber;
 import rx.schedulers.Schedulers;
 import rx.schedulers.TestScheduler;
-import rx.schedulers.TimeInterval;
-import rx.schedulers.Timestamped;
 
 public class FlatMapTest {
 	
@@ -35,30 +34,90 @@ public class FlatMapTest {
 	    }
 	}
 
-	public void exampleTimestamp() {
-		Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);
+	public void exampleFlatMap() {
+		Observable<Integer> values = Observable.just(2);
 
-		values.take(3)
-		    .timestamp()
-		    .subscribe(new PrintSubscriber("Timestamp"));
+		values
+		    .flatMap(i -> Observable.range(0,i))
+		    .subscribe(new PrintSubscriber("flatMap"));
 		
-		// Timestamp: Timestamped(timestampMillis = 1428611094943, value = 0)
-		// Timestamp: Timestamped(timestampMillis = 1428611095037, value = 1)
-		// Timestamp: Timestamped(timestampMillis = 1428611095136, value = 2)
-		// Timestamp: Completed
+		// flatMap: 0
+		// flatMap: 1
+		// flatMap: Completed
 	}
 	
-	public void exampleTimeInteval() {
-		Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS);
+	public void exampleFlatMapMultipleValues() {
+		Observable<Integer> values = Observable.range(1,3);
 
-		values.take(3)
-		    .timeInterval()
-		    .subscribe(new PrintSubscriber("TimeInterval"));
+		values
+		    .flatMap(i -> Observable.range(0,i))
+		    .subscribe(new PrintSubscriber("flatMap"));
 		
-		// TimeInterval: TimeInterval [intervalInMilliseconds=131, value=0]
-		// TimeInterval: TimeInterval [intervalInMilliseconds=75, value=1]
-		// TimeInterval: TimeInterval [intervalInMilliseconds=100, value=2]
-		// TimeInterval: Completed
+		// flatMap: 0
+		// flatMap: 0
+		// flatMap: 1
+		// flatMap: 0
+		// flatMap: 1
+		// flatMap: 2
+		// flatMap: Completed
+	}
+	
+	public void exampleFlatMapNewType() {
+		Observable<Integer> values = Observable.just(1);
+
+		values
+		    .flatMap(i -> 
+		        Observable.just(
+		            Character.valueOf((char)(i+64))
+		    ))
+		    .subscribe(new PrintSubscriber("flatMap"));
+		
+		// flatMap: A
+		// flatMap: Completed
+	}
+	
+	public void exampleFlatMapFilter() {
+		Observable<Integer> values = Observable.range(0,30);
+
+		values
+		    .flatMap(i -> {
+		        if (0 < i && i <= 26)
+		            return Observable.just(Character.valueOf((char)(i+64)));
+		        else
+		            return Observable.empty();
+		    })
+		    .subscribe(new PrintSubscriber("flatMap"));
+		
+		// flatMap: A
+		// flatMap: B
+		// flatMap: C
+		// ...
+		// flatMap: X
+		// flatMap: Y
+		// flatMap: Z
+		// flatMap: Completed
+	}
+	
+	public void exampleFlatMapAsynchronous() {
+		Observable.just(100, 150)
+	    .flatMap(i ->
+	        Observable.interval(i, TimeUnit.MILLISECONDS)
+	            .map(v -> i)
+	    )
+	    .take(10)
+	    .subscribe(new PrintSubscriber("flatMap"));
+		
+		// flatMap: 100
+		// flatMap: 150
+		// flatMap: 100
+		// flatMap: 100
+		// flatMap: 150
+		// flatMap: 100
+		// flatMap: 150
+		// flatMap: 100
+		// flatMap: 100
+		// flatMap: 150
+		// flatMap: Completed
 	}
 	
 	
@@ -67,43 +126,91 @@ public class FlatMapTest {
 	//
 	
 	@Test
-	public void testTimestamp() {
-		TestSubscriber<Timestamped<Long>> tester = new TestSubscriber<>();
-		TestScheduler scheduler = Schedulers.test();
+	public void testFlatMap() {
+		TestSubscriber<Integer> tester = new TestSubscriber<>();
 		
-		Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS, scheduler);
+		Observable<Integer> values = Observable.just(2);
 
-		values.take(3)
-		    .timestamp(scheduler)
+		values
+		    .flatMap(i -> Observable.range(0,i))
 		    .subscribe(tester);
 		
-		scheduler.advanceTimeBy(1, TimeUnit.SECONDS);
-		
-		assertEquals(tester.getOnNextEvents().get(0).getTimestampMillis(), 100);
-		assertEquals(tester.getOnNextEvents().get(1).getTimestampMillis(), 200);
-		assertEquals(tester.getOnNextEvents().get(2).getTimestampMillis(), 300);
+		tester.assertReceivedOnNext(Arrays.asList(0,1));
 		tester.assertTerminalEvent();
 		tester.assertNoErrors();
 	}
 	
 	@Test
-	public void testTimeInteval() {
-		TestSubscriber<TimeInterval<Long>> tester = new TestSubscriber<>();
-		TestScheduler scheduler = Schedulers.test();
+	public void testFlatMapMultipleValues() {
+		TestSubscriber<Integer> tester = new TestSubscriber<>();
 		
-		Observable<Long> values = Observable.interval(100, TimeUnit.MILLISECONDS, scheduler);
+		Observable<Integer> values = Observable.range(1,3);
 
-		values.take(3)
-		    .timeInterval(scheduler)
+		values
+		    .flatMap(i -> Observable.range(0,i))
 		    .subscribe(tester);
 		
-		scheduler.advanceTimeBy(1, TimeUnit.SECONDS);
+		tester.assertReceivedOnNext(Arrays.asList(0,0,1,0,1,2));
+		tester.assertTerminalEvent();
+		tester.assertNoErrors();
 		
-		assertEquals(tester.getOnNextEvents().get(0).getIntervalInMilliseconds(), 100);
-		assertEquals(tester.getOnNextEvents().get(1).getIntervalInMilliseconds(), 100);
-		assertEquals(tester.getOnNextEvents().get(2).getIntervalInMilliseconds(), 100);
+	}
+	
+	@Test
+	public void testFlatMapNewType() {
+		TestSubscriber<Character> tester = new TestSubscriber<>();
+		
+		Observable<Integer> values = Observable.just(1);
+
+		values
+		    .flatMap(i -> 
+		        Observable.just(
+		            Character.valueOf((char)(i+64))
+		    ))
+		    .subscribe(tester);
+		
+		tester.assertReceivedOnNext(Arrays.asList('A'));
 		tester.assertTerminalEvent();
 		tester.assertNoErrors();
 	}
 	
+	@Test
+	public void testFlatMapFilter() {
+		TestSubscriber<Character> tester = new TestSubscriber<>();
+		
+		Observable<Integer> values = Observable.range(0,30);
+
+		values
+		    .flatMap(i -> {
+		        if (0 < i && i <= 26)
+		            return Observable.just(Character.valueOf((char)(i+64)));
+		        else
+		            return Observable.empty();
+		    })
+		    .subscribe(tester);
+		
+		assertEquals(tester.getOnNextEvents().size(), 26);
+		tester.assertTerminalEvent();
+		tester.assertNoErrors();
+	}
+	
+	@Test
+	public void testFlatMapAsynchronous() {
+		TestSubscriber<Object> tester = new TestSubscriber<>();
+		TestScheduler scheduler = Schedulers.test();
+		
+		Observable.just(100, 150)
+		    .flatMap(i ->
+		        Observable.interval(i, TimeUnit.MILLISECONDS, scheduler)
+		            .map(v -> i)
+		    )
+		    .take(10)
+		    .distinctUntilChanged()
+		    .subscribe(tester);
+		
+		scheduler.advanceTimeBy(2, TimeUnit.SECONDS);
+		
+		assertTrue(tester.getOnNextEvents().size() > 2); // 100 and 150 succeeded each other more than once
+		tester.assertNoErrors();
+	}
 }
