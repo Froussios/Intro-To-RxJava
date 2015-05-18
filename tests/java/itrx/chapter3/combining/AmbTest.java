@@ -23,8 +23,8 @@ public class AmbTest {
 	
 	public void exampleAmbWith() {
 		Observable.timer(100, TimeUnit.MILLISECONDS).map(i -> "First")
-				.ambWith(Observable.timer(50, TimeUnit.MILLISECONDS).map(i -> "Second"))
-				.ambWith(Observable.timer(70, TimeUnit.MILLISECONDS).map(i -> "Third"))
+			.ambWith(Observable.timer(50, TimeUnit.MILLISECONDS).map(i -> "Second"))
+			.ambWith(Observable.timer(70, TimeUnit.MILLISECONDS).map(i -> "Third"))
 			.subscribe(System.out::println);
         
 		// Second
@@ -57,8 +57,8 @@ public class AmbTest {
 		TestScheduler scheduler = Schedulers.test();
 		
 		Observable.timer(100, TimeUnit.MILLISECONDS, scheduler).map(i -> "First")
-				.ambWith(Observable.timer(50, TimeUnit.MILLISECONDS, scheduler).map(i -> "Second"))
-				.ambWith(Observable.timer(70, TimeUnit.MILLISECONDS, scheduler).map(i -> "Third"))
+			.ambWith(Observable.timer(50, TimeUnit.MILLISECONDS, scheduler).map(i -> "Second"))
+			.ambWith(Observable.timer(70, TimeUnit.MILLISECONDS, scheduler).map(i -> "Third"))
 			.subscribe(tester);
         
 		scheduler.advanceTimeBy(100, TimeUnit.MILLISECONDS);
