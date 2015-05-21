@@ -74,7 +74,7 @@ public class FlatMapIterableTest {
 		Observable.range(1, 3)
 			.flatMapIterable(
 				i -> range(1, i),
-				(ori, rv) -> ori * (Integer) rv)
+				(ori, rv) -> ori * rv)
 			.subscribe(System.out::println);
 		
 		// 1
@@ -89,7 +89,7 @@ public class FlatMapIterableTest {
 		Observable.range(1, 3)
 			.flatMapIterable(
 				i -> new Range(1, i),
-				(ori, rv) -> ori * (Integer) rv)
+				(ori, rv) -> ori * rv)
 			.subscribe(System.out::println);
 	
 	// 1
@@ -125,7 +125,7 @@ public class FlatMapIterableTest {
 		Observable.range(1, 3)
 			.flatMapIterable(
 				i -> range(1, i),
-				(ori, rv) -> ori * (Integer) rv)
+				(ori, rv) -> ori * rv)
 			.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList(1,2,4,3,6,9));
@@ -140,7 +140,7 @@ public class FlatMapIterableTest {
 		Observable.range(1, 3)
 			.flatMapIterable(
 				i -> new Range(1, i),
-				(ori, rv) -> ori * (Integer) rv)
+				(ori, rv) -> ori * rv)
 			.subscribe(tester);
 		
 		tester.assertReceivedOnNext(Arrays.asList(1,2,4,3,6,9));
