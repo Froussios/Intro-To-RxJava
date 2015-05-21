@@ -1,12 +1,10 @@
 package itrx.chapter3.error;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
-
-import junit.framework.Assert;
 
 import org.junit.Test;
 
