@@ -10,7 +10,6 @@ import rx.subjects.Subject;
 
 public class RxContractTest {
 
-	@Test
 	public void example() {
 		Subject<Integer, Integer> s = ReplaySubject.create();
 		s.subscribe(v -> System.out.println(v));
