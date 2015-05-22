@@ -45,6 +45,22 @@ public class DebounceTest {
 		// 9
 	}
 	
+	public void exampleThrottleWithTimeout() {
+		Observable.concat(
+		        Observable.interval(100, TimeUnit.MILLISECONDS).take(3),
+		        Observable.interval(500, TimeUnit.MILLISECONDS).take(3),
+		        Observable.interval(100, TimeUnit.MILLISECONDS).take(3)
+		    )
+		    .scan(0, (acc, v) -> acc+1)
+		    .throttleWithTimeout(150, TimeUnit.MILLISECONDS)
+		    .subscribe(System.out::println);
+		
+		// 3
+		// 4
+		// 5
+		// 9
+	}
+	
 	
 	//
 	// Test
@@ -85,5 +101,22 @@ public class DebounceTest {
 		scheduler.advanceTimeBy(2100, TimeUnit.MILLISECONDS);
 		tester.assertReceivedOnNext(Arrays.asList(1, 2, 3, 4, 5, 9));
 	}
-
+	
+	@Test
+	public void testThrottleWithTimeout() {
+		TestScheduler scheduler = Schedulers.test();
+		TestSubscriber<Integer> tester = new TestSubscriber<>();
+		
+		Observable.concat(
+		        Observable.interval(100, TimeUnit.MILLISECONDS, scheduler).take(3),
+		        Observable.interval(500, TimeUnit.MILLISECONDS, scheduler).take(3),
+		        Observable.interval(100, TimeUnit.MILLISECONDS, scheduler).take(3)
+		    )
+		    .scan(0, (acc, v) -> acc+1)
+		    .throttleWithTimeout(150, TimeUnit.MILLISECONDS, scheduler)
+		    .subscribe(tester);
+		
+		scheduler.advanceTimeBy(2100, TimeUnit.MILLISECONDS);
+		tester.assertReceivedOnNext(Arrays.asList(3, 4, 5, 9));
+	}
 }
