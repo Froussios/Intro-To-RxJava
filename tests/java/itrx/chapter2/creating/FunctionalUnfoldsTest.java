@@ -128,7 +128,7 @@ public class FunctionalUnfoldsTest {
 		
 		scheduler.advanceTimeBy(6, TimeUnit.SECONDS);
 		
-		tester.assertReceivedOnNext(Arrays.asList(0L,1L,2L));
+		tester.assertReceivedOnNext(Arrays.asList(0L,1L,2L,3L,4L));
 		tester.assertNoErrors();
 		assertEquals(tester.getOnCompletedEvents().size(), 0); // Hasn't terminated
 		
