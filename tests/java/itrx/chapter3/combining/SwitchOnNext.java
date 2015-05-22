@@ -22,7 +22,7 @@ public class SwitchOnNext {
 		                .map(i2 -> i)
 		        )
 		    )
-		    .take(10)
+		    .take(9)
 		    .subscribe(System.out::println);
 		
 		// 0
@@ -34,7 +34,6 @@ public class SwitchOnNext {
 		// 2
 		// 2
 		// 2
-		// 3
 	}
 	
 	
