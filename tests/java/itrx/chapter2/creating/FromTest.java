@@ -2,6 +2,7 @@ package itrx.chapter2.creating;
 
 import java.util.Arrays;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 
@@ -27,6 +28,24 @@ public class FromTest {
 		
 		// Received: 21
 		// Completed
+	}
+	
+	public void exampleFromFutureTimeout() {
+		FutureTask<Integer> f = new FutureTask<Integer>(() -> {
+		    Thread.sleep(2000);
+		    return 21;
+		});
+		new Thread(f).start();
+
+		Observable<Integer> values = Observable.from(f, 1000, TimeUnit.MILLISECONDS);
+
+		values.subscribe(
+		    v -> System.out.println("Received: " + v),
+		    e -> System.out.println("Error: " + e),
+		    () -> System.out.println("Completed")
+		);
+		
+		// Error: java.util.concurrent.TimeoutException
 	}
 
 	public void exampleFromArray() {
@@ -63,6 +82,24 @@ public class FromTest {
 	//
 	// Tests
 	//
+	
+	@Test
+	public void testFromFuture() {
+		TestSubscriber<Integer> tester = new TestSubscriber<Integer>();
+		
+		FutureTask<Integer> f = new FutureTask<Integer>(() -> {
+		    return 21;
+		});
+		new Thread(f).start();
+
+		Observable<Integer> values = Observable.from(f);
+
+		values.subscribe(tester);
+		
+		tester.assertReceivedOnNext(Arrays.asList(21));
+		tester.assertNoErrors();
+		tester.assertTerminalEvent();
+	}
 	
 	@Test
 	public void testFromArray() {
