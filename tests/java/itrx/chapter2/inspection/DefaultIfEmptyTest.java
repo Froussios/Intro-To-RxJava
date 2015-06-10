@@ -12,10 +12,9 @@ import rx.observers.TestSubscriber;
 public class DefaultIfEmptyTest {
 
 	public void exampleDefaultIfEmpty() {
-		Observable<Integer> values = Observable.range(0,10);
+		Observable<Integer> values = Observable.empty();
 
 		values
-		    .take(0)
 		    .defaultIfEmpty(2)
 		    .subscribe(
 		        v -> System.out.println(v),
@@ -50,10 +49,9 @@ public class DefaultIfEmptyTest {
 	public void testDefaultIfEmpty() {
 		TestSubscriber<Integer> tester = new TestSubscriber<Integer>();
 		
-		Observable<Integer> values = Observable.range(0,10);
+		Observable<Integer> values = Observable.empty();
 
 		values
-		    .take(0)
 		    .defaultIfEmpty(2)
 		    .subscribe(tester);
 		
