@@ -1,7 +1,5 @@
 package itrx.chapter3.error;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
@@ -29,8 +27,7 @@ public class RetryWhenTest {
 		
 		source.retryWhen((o) -> o
 				.take(2)
-				.delay(100, TimeUnit.MILLISECONDS)
-				.concatWith(Observable.error(new Exception("Done"))))
+				.delay(100, TimeUnit.MILLISECONDS))
 			.timeInterval()
 			.subscribe(
 				System.out::println,
@@ -62,7 +59,7 @@ public class RetryWhenTest {
 		source.retryWhen((o) -> o
 				.take(2)
 				.delay(100, TimeUnit.MILLISECONDS, scheduler)
-				.concatWith(Observable.error(new Exception("Done"))), scheduler)
+				, scheduler)
 			.timeInterval(scheduler)
 			.map(i -> i.getIntervalInMilliseconds())
 			.subscribe(intervals);
@@ -70,6 +67,6 @@ public class RetryWhenTest {
 		scheduler.advanceTimeBy(200, TimeUnit.MILLISECONDS);
 		intervals.assertReceivedOnNext(Arrays.asList(0L, 0L, 100L, 0L, 100L, 0L));
 		intervals.assertTerminalEvent();
-		assertEquals(1, intervals.getOnErrorEvents().size());
+		intervals.assertNoErrors();
 	}
 }
