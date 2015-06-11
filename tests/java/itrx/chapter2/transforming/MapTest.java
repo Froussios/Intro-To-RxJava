@@ -46,7 +46,7 @@ public class MapTest {
 	public void exampleMap2() {
 		Observable<Integer> values = 
 		        Observable.just("0", "1", "2", "3")
-		            .map(s -> Integer.parseInt(s));
+		            .map(Integer::parseInt);
 
 		values.subscribe(new PrintSubscriber("Map"));
 		
@@ -83,7 +83,7 @@ public class MapTest {
 		
 		Observable<Integer> values = 
 		        Observable.just("0", "1", "2", "3")
-		            .map(s -> Integer.parseInt(s));
+		            .map(Integer::parseInt);
 
 		values.subscribe(tester);
 		
