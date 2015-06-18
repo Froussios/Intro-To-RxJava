@@ -20,7 +20,24 @@ public class RxContractExample {
 
 		// 0
 	}
+	
+	public void examplePrintCompletion() {
+		Subject<Integer, Integer>  values = ReplaySubject.create();
+		values.subscribe(
+		    v -> System.out.println(v),
+		    e -> System.out.println(e),
+		    () -> System.out.println("Completed")
+		);
+		values.onNext(0);
+		values.onNext(1);
+		values.onCompleted();
+		values.onNext(2);
+		
+		// 0
+		// 1
+	}
 
+	
 	//
 	// Test
 	//
@@ -37,6 +54,22 @@ public class RxContractExample {
 		s.onNext(2);
 
 		tester.assertReceivedOnNext(Arrays.asList(0));
+		tester.assertTerminalEvent();
+		tester.assertNoErrors();
+	}
+	
+	@Test
+	public void testPrintCompletion() {
+		TestSubscriber<Integer> tester = new TestSubscriber<Integer>();
+		
+		Subject<Integer, Integer>  values = ReplaySubject.create();
+		values.subscribe(tester);
+		values.onNext(0);
+		values.onNext(1);
+		values.onCompleted();
+		values.onNext(2);
+		
+		tester.assertReceivedOnNext(Arrays.asList(0,1));
 		tester.assertTerminalEvent();
 		tester.assertNoErrors();
 	}
