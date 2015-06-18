@@ -92,12 +92,12 @@ public class FlatMapIterableExample {
 				(ori, rv) -> ori * rv)
 			.subscribe(System.out::println);
 	
-	// 1
-	// 2
-	// 4
-	// 3
-	// 6
-	// 9
+		// 1
+		// 2
+		// 4
+		// 3
+		// 6
+		// 9
 	}
 	
 	
