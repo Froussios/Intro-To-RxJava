@@ -9,7 +9,7 @@ import rx.subjects.BehaviorSubject;
 
 public class BehaviorSubjectExample {
 
-	public void exampleLat() {
+	public void exampleLate() {
 		BehaviorSubject<Integer> s = BehaviorSubject.create();
 		s.onNext(0);
 		s.onNext(1);
