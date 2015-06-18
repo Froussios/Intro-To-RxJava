@@ -18,7 +18,8 @@ public class UnsubscribingExample {
 	public void exampleUnsubscribe() {
 		Subject<Integer, Integer> values = ReplaySubject.create();
 		Subscription subscription = values.subscribe(
-				v -> System.out.println(v), e -> System.err.println(e),
+				v -> System.out.println(v),
+				e -> System.err.println(e),
 				() -> System.out.println("Done"));
 		values.onNext(0);
 		values.onNext(1);
