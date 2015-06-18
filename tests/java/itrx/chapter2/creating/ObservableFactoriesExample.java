@@ -60,7 +60,7 @@ public class ObservableFactoriesExample {
 		// Error: java.lang.Exception: Oops
 	}
 	
-	public void exampleDefer() throws InterruptedException {
+	public void exampleShouldDefer() throws InterruptedException {
 		Observable<Long> now = Observable.just(System.currentTimeMillis());
 
 		now.subscribe(System.out::println);
@@ -71,7 +71,7 @@ public class ObservableFactoriesExample {
 		// 1431443908375
 	}
 	
-	public void exampleCreate() throws InterruptedException {
+	public void exampleDefer() throws InterruptedException {
 		Observable<Long> now = Observable.defer(() ->
         	Observable.just(System.currentTimeMillis()));
 
@@ -81,6 +81,22 @@ public class ObservableFactoriesExample {
 		
 		// 1431444107854
 		// 1431444108858
+	}
+	
+	public void exampleCreate() {
+		Observable<String> values = Observable.create(o -> {
+			o.onNext("Hello");
+			o.onCompleted();
+		});
+		
+		values.subscribe(
+		    v -> System.out.println("Received: " + v),
+		    e -> System.out.println("Error: " + e),
+		    () -> System.out.println("Completed")
+		);
+		
+		// Received: Hello
+		// Completed
 	}
 	
 	
@@ -135,6 +151,22 @@ public class ObservableFactoriesExample {
 		tester.assertTerminalEvent();
 		assertEquals(tester.getOnErrorEvents().size(), 1);
 		assertEquals(tester.getOnCompletedEvents().size(), 0);
+	}
+	
+	@Test
+	public void testShouldDefer() throws InterruptedException {
+		TestScheduler scheduler = Schedulers.test();
+		TestSubscriber<Long> tester1 = new TestSubscriber<>();
+		TestSubscriber<Long> tester2 = new TestSubscriber<>();
+		
+		Observable<Long> now = Observable.just(scheduler.now());
+
+		now.subscribe(tester1);
+		scheduler.advanceTimeBy(1000, TimeUnit.MILLISECONDS);
+		now.subscribe(tester2);
+		
+		assertEquals(tester1.getOnNextEvents().get(0),
+				tester2.getOnNextEvents().get(0));
 	}
 	
 	@Test
