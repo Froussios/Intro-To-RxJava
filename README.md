@@ -8,7 +8,7 @@ No experience with either reactive or functional programming is needed to follow
 
 ### Structure
 
-The content of this book is meant to be read from start to finish. It begins with the basics and every subsequent chapter introduces increasingly advanced features and concepts. Sections of the book are intended to be self-containing and to-the-point, so that the book can be referred back to by non-beginners.
+The content of this book is meant to be read from start to finish. It is bigger than your average tutorial and smaller than an actual book. It begins with the basics and every subsequent chapter introduces increasingly advanced features and concepts. Sections of the book are intended to be self-containing and to-the-point, so that the book can be referred back to by non-beginners.
 
 The examples used in the book are also [available in compilable java files](/tests/java/itrx) in two formats:
 * Examples that print to standard output (recommended for first-time readers)
