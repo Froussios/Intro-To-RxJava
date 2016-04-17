@@ -1,17 +1,24 @@
-# Intro to RxJava
+# Введение в RxJava
 
-This guide aims to introduce a beginner reactive programmer to the complete power of the [RxJava](https://github.com/ReactiveX/RxJava) implementation of reactive programming for the JVM. It is based on the [IntroToRx](http://www.introtorx.com) guide for Rx.NET.
+Этот туториал предназначен для знакомства начинающего реактивного программиста с мощью библиотеки [RxJava](https://github.com/ReactiveX/RxJava) — реализации принципов реактивного программирования для JVM. Это перевод обширного туториала по RxJava Крисса Фруссиоса, основанного на [IntroToRx](http://www.introtorx.com) для Rx.NET.
 
-No experience with either reactive or functional programming is needed to follow the book. Familiarity with the basics of Java is required.
+Для следования этой обучающей программе от вас не потребуются знания реактивного или функционального программирования, однако, предполагается наличие базовых знаний Java.
 
-[Begin learning](/Part 1 - Getting Started/1. Why Rx.md)
+[Начать изучение](/Part 1 - Getting Started/1. Why Rx.md)
 
 ### Structure
 
-The content of this book is meant to be read from start to finish. It is bigger than your average tutorial and smaller than an actual book. It begins with the basics and every subsequent chapter introduces increasingly advanced features and concepts. Sections of the book are intended to be self-containing and to-the-point, so that the book can be referred back to by non-beginners.
+Материал этих статей расчитан на прочтение от начала до конца. Его обьем больше, чем среднего туториала, но меньше чем реальной книги. Мы начнем с самых основ и от раздела к разделу будем переходить к всё более продвинутым сценариям и концепциям. Каждый раздел задумывался самодостаточным и лаконичным для того, чтобы к нему можно было вернуться в будущем.
 
-The examples used in the book are also [available in compilable java files](/tests/java/itrx) in two formats:
-* Examples that print to standard output (recommended for first-time readers)
-* Silent, self-checking examples in the form of [JUnit](http://junit.org/) tests.
-The readers are invited to study whichever style suits them best.
+Примеры к этим материалам доступны в двух видах:
+
+Примеры с выводом в консоль (рекоммендовано для читающих в первый раз)
+Самопроверяющиеся примеры в форме JUnit тестов
+
+
+[Примеры](/tests/java/itrx) к этим материалам доступны в двух видах:
+* Примеры с выводом в консоль (рекоммендовано для читающих в первый раз)
+* Самопроверяющиеся примеры в форме JUnit тестов
+
+Используйте наиболее удобный для вас вариант
 
