@@ -4,7 +4,7 @@ This guide aims to introduce a beginner reactive programmer to the complete powe
 
 No experience with either reactive or functional programming is needed to follow the book. Familiarity with the basics of Java is required.
 
-[Begin learning](/Part 1 - Getting Started/1. Why Rx.md)
+[Begin learning](/Part%201%20-%20Getting%20Started/1.%20Why%20Rx.md)
 
 ### Structure
 
