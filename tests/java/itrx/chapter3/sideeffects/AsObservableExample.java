@@ -85,7 +85,7 @@ public class AsObservableExample {
 		service.play();
 		
 		// Before: Greet
-		// After: Greet
+		// After: Later
 		// After: Hello
 		// After: and
 		// After: goodbye
