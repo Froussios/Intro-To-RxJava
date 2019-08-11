@@ -61,7 +61,7 @@ public class DoOnExample {
 
 		values
 		    .doOnEach(new PrintSubscriber("Log"))
-		    .map(s -> s.toUpperCase())
+		    .map(s -> ((String) s).toUpperCase())
 		    .subscribe(new PrintSubscriber("Process"));
 		
 		// Log: side
