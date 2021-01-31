@@ -46,7 +46,7 @@ public class MulticastExample {
 		Thread.sleep(500);
 		Subscription s2 = cold.subscribe(i -> System.out.println("Second: " + i));
 		Thread.sleep(500);
-		System.out.println("Unsubscribe first");
+		System.out.println("Unsubscribe second");
 		s2.unsubscribe();
 		Thread.sleep(500);
 		System.out.println("Unsubscribe first");
@@ -55,6 +55,9 @@ public class MulticastExample {
 		System.out.println("First connection again");
 		Thread.sleep(500);
 		s1 = cold.subscribe(i -> System.out.println("First: " + i));
+		Thread.sleep(900);
+		System.out.println("Unsubscribe first again");
+		s1.unsubscribe();
 		
 		// First: 0
 		// First: 1
@@ -62,8 +65,9 @@ public class MulticastExample {
 		// Second: 2
 		// First: 3
 		// Second: 3
-		// Unsubscribe first
 		// First: 4
+		// Second: 4
+		// Unsubscribe second
 		// First: 5
 		// First: 6
 		// Unsubscribe first
@@ -72,7 +76,7 @@ public class MulticastExample {
 		// First: 1
 		// First: 2
 		// First: 3
-		// First: 4
+		// Unsubscribe first again
 	}
 	
 	
