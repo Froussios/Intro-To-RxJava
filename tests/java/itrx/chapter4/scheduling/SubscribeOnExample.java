@@ -74,10 +74,10 @@ public class SubscribeOnExample {
 		System.out.println("Finished main: " + Thread.currentThread().getId());
 		
 		// Main: 1
-		// Created on 1
+		// Created on 11
 		// Received 1 on 11
 		// Received 2 on 11
-		// Finished main: 11
+		// Finished main: 1
 	}
 	
 	public void exampleIntervalThread() {
